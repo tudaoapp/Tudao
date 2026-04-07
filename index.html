@@ -5,29 +5,64 @@
   <style>
     body {
       font-family: Arial;
-      text-align: center;
       background: #f5f5f5;
-      padding: 50px;
+      margin: 0;
     }
-    h1 {
-      color: #222;
+
+    header {
+      background: black;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
     }
+
+    .container {
+      padding: 20px;
+    }
+
+    .button {
+      display: block;
+      background: black;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
     .card {
       background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
     }
   </style>
 </head>
+
 <body>
 
-<div class="card">
-  <h1>🚀 Tudao</h1>
-  <p>Маркетплейс недвижимости и товаров</p>
-  <p>Скоро запуск 🔥</p>
+<header>🚀 Tudao Marketplace</header>
+
+<div class="container">
+
+  <a class="button" href="#">➕ Разместить объявление</a>
+  <a class="button" href="#">🏠 Аренда жилья</a>
+  <a class="button" href="#">👟 Товары</a>
+
+  <div class="card">
+    <h3>Квартира 2 спальни</h3>
+    <p>Центр, рядом с морем</p>
+    <b>15 млн VND</b>
+  </div>
+
+  <div class="card">
+    <h3>Кроссовки Nike</h3>
+    <p>Новые, фабрика</p>
+    <b>1 200 000 VND</b>
+  </div>
+
 </div>
 
 </body>
