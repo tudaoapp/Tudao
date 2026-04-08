@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HESS Marketplace</title>
-
   <style>
     body {
       margin: 0;
@@ -23,31 +22,44 @@
       flex-direction: column;
     }
 
-    /* Верхняя шапка */
+    /* Шапка сайта */
     .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: #111;
-      padding: 20px;
-      text-align: center;
+      padding: 15px 20px;
+      border-bottom: 2px solid #fff;
+    }
+
+    .header-left, .header-center, .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .header-center {
       font-size: 28px;
       font-weight: bold;
-      border-bottom: 2px solid #fff;
+      color: #fff;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .header-right {
+      font-size: 14px;
+      color: #ccc;
+      text-align: right;
     }
 
     /* Контент */
     .content {
       flex: 1;
       padding: 20px;
-    }
-
-    /* Футер */
-    .footer {
-      background: #111;
-      padding: 15px 20px;
-      border-top: 2px solid #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
     }
 
     /* Карточки Marketplace */
@@ -86,18 +98,45 @@
       font-weight: bold;
       color: white;
     }
+
+    /* Новости */
+    .news {
+      margin: 20px;
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+    }
+
+    .news h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
   </style>
 </head>
-
 <body>
   <div class="site-border">
 
-    <!-- Верхняя шапка -->
-    <div class="header">HESS Marketplace</div>
+    <!-- Шапка -->
+    <div class="header">
+      <div class="header-left" id="time">Время: --:--:--</div>
+      <div class="header-center">HESS Marketplace</div>
+      <div class="header-right" id="weather">Погода: 28°C, влажность 60%</div>
+    </div>
 
     <!-- Контент -->
     <div class="content">
-
       <!-- Карточки -->
       <div class="cards">
         <div class="card">
@@ -122,26 +161,28 @@
         </div>
       </div>
 
-    </div>
+      <!-- Новости -->
+      <div class="news">
+        <h2>Новости Фукуока</h2>
+        <div class="news-item">Новое кафе открылось в центре острова</div>
+        <div class="news-item">Новая услуга по аренде электросамокатов</div>
+        <div class="news-item">Скидки на жильё в районе Онланг</div>
+      </div>
 
-    <!-- Футер с погодой и временем -->
-    <div class="footer">
-      <div id="time">Время: --:--:--</div>
-      <div id="weather">Погода: 28°C, влажность 60%</div>
     </div>
-
   </div>
 
   <script>
-    // Скрипт для отображения текущего времени
+    // Скрипт для времени
     function updateTime() {
       const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById('time').textContent = 'Время: ' + timeString;
+      document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
     }
     setInterval(updateTime, 1000);
     updateTime();
-  </script>
 
+    // Для начала погода пока статично, потом можно API добавить
+    // document.getElementById('weather').textContent = "Погода: 28°C, влажность 60%";
+  </script>
 </body>
 </html>
