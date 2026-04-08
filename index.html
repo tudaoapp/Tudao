@@ -8,7 +8,7 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+    background: url('image/background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
   }
@@ -109,9 +109,10 @@
 </head>
 <body>
 
+  <!-- Шапка -->
   <div class="header">
     <div class="header-left">
-      <div id="time"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Часы"> --:--:--</div>
+      <div id="time"><img class="icon" src="image/clock.png" alt="Часы"> --:--:--</div>
       <div id="flights">
         Прилетело: --<br>
         Вылетело: --
@@ -121,53 +122,54 @@
     <div class="header-center">HESS Marketplace</div>
 
     <div class="header-right" id="weather">
-      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1163/1163657.png" alt="Погода">
+      <img class="icon" src="image/weather.png" alt="Погода">
       Погода: 28°C, влажность 60%
     </div>
   </div>
 
+  <!-- Контент -->
   <div class="content">
+
+    <!-- Карточки -->
     <div class="cards">
-      <!-- Аренда жилья -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Аренда жилья">
+        <img src="image/arenda_zhilya.jpg" alt="Аренда жилья">
         <div class="card-title">Аренда жилья</div>
       </div>
 
-      <!-- Аренда байков -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1597007011259-d0e4a7cb1ff1?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
+        <img src="image/arenda_baikov.jpg" alt="Аренда байков">
         <div class="card-title">Аренда байков</div>
       </div>
 
-      <!-- Услуги -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1581091215366-7e6eab9ec062?auto=format&fit=crop&w=400&q=80" alt="Услуги">
+        <img src="image/uslugi.jpg" alt="Услуги">
         <div class="card-title">Услуги</div>
       </div>
 
-      <!-- Объявления -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1571607382640-26aa18b1f5cd?auto=format&fit=crop&w=400&q=80" alt="Объявления">
+        <img src="image/obyavleniya.jpg" alt="Объявления">
         <div class="card-title">Объявления</div>
       </div>
 
-      <!-- Маркетплейс -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600185366526-5d391317e145?auto=format&fit=crop&w=400&q=80" alt="Маркетплейс">
+        <img src="image/marketplace.jpg" alt="Маркетплейс">
         <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
       </div>
     </div>
 
+    <!-- Новости -->
     <div class="news">
       <h2>Новости Фукуока</h2>
       <div class="news-item">Новое кафе открылось в центре острова</div>
       <div class="news-item">Новая услуга по аренде электросамокатов</div>
       <div class="news-item">Скидки на жильё в районе Онланг</div>
     </div>
+
   </div>
 
 <script>
+  // Время
   function updateTime() {
     const now = new Date();
     document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
@@ -175,6 +177,7 @@
   setInterval(updateTime, 1000);
   updateTime();
 
+  // Прилет/вылет
   function updateFlights() {
     document.getElementById('flights').innerHTML =
       'Прилетело: 25<br>Вылетело: 18';
