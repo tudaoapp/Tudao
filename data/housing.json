@@ -3,107 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аренда жилья - HESS Marketplace</title>
+<title>Аренда жилья</title>
+
 <style>
-body { margin:0; font-family:Arial,sans-serif; background:#0d0d0d; color:white; }
-.header { padding:15px; background:rgba(0,0,0,0.7); text-align:center; font-size:24px; font-weight:bold; }
-.housing-list { display:grid; grid-template-columns:1fr 1fr; gap:15px; padding:15px; }
-.housing-card { background:rgba(255,255,255,0.1); border-radius:15px; overflow:hidden; text-align:center; cursor:pointer; transition:0.2s; }
-.housing-card img { width:100%; height:150px; object-fit:cover; }
-.housing-card h3 { margin:10px 0 5px; }
-.housing-card p { margin:0 0 10px; }
-.housing-card a { display:inline-block; margin-bottom:10px; padding:5px 10px; background:#1e90ff; color:white; border-radius:10px; text-decoration:none; transition:0.2s; }
-.housing-card a:hover { background:#0a70d1; }
-#add-form { padding:15px; margin:15px; background:rgba(255,255,255,0.1); border-radius:15px; }
-#add-form input { display:block; width:100%; margin-bottom:10px; padding:8px; border-radius:8px; border:none; }
-#add-form button { padding:10px 15px; border:none; border-radius:8px; background:#1e90ff; color:white; cursor:pointer; }
-#add-form button:hover { background:#0a70d1; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: white;
+}
+
+.container {
+  padding: 15px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* КАРТОЧКИ */
+.cards {
+  display: grid;
+  gap: 15px;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.price {
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+/* КНОПКИ */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.tg {
+  background: #2AABEE;
+}
+
+.wa {
+  background: #25D366;
+}
 </style>
 </head>
+
 <body>
 
-<div class="header">Аренда жилья</div>
+<div class="container">
 
-<!-- Форма добавления нового объявления -->
-<div id="add-form">
-  <h3>Добавить объявление</h3>
-  <input type="text" id="title" placeholder="Название">
-  <input type="text" id="price" placeholder="Цена">
-  <input type="text" id="image" placeholder="Ссылка на изображение">
-  <input type="text" id="link" placeholder="Ссылка 'Подробнее'">
-  <button onclick="addHousing()">Добавить</button>
+  <div class="title">🏠 Аренда жилья</div>
+
+  <div class="cards">
+
+    <!-- КАРТОЧКА 1 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+      <div class="card-content">
+        <div class="card-title">Вилла у моря</div>
+        <div class="price">$1200 / месяц</div>
+
+        <div class="buttons">
+          <a class="btn tg" href="https://t.me/trustasia?text=Интересует%20вилла%20у%20моря">Telegram</a>
+          <a class="btn wa" href="https://wa.me/84365331907?text=Интересует%20вилла%20у%20моря">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- КАРТОЧКА 2 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688">
+      <div class="card-content">
+        <div class="card-title">Апартаменты 1 спальня</div>
+        <div class="price">$500 / месяц</div>
+
+        <div class="buttons">
+          <a class="btn tg" href="https://t.me/trustasia?text=Интересуют%20апартаменты%201%20спальня">Telegram</a>
+          <a class="btn wa" href="https://wa.me/84365331907?text=Интересуют%20апартаменты%201%20спальня">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- КАРТОЧКА 3 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
+      <div class="card-content">
+        <div class="card-title">Бунгало в Онланге</div>
+        <div class="price">$400 / месяц</div>
+
+        <div class="buttons">
+          <a class="btn tg" href="https://t.me/trustasia?text=Интересует%20бунгало%20Онланг">Telegram</a>
+          <a class="btn wa" href="https://wa.me/84365331907?text=Интересует%20бунгало%20Онланг">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
-
-<div class="housing-list" id="housing-list"></div>
-
-<script>
-let housingData = [];
-
-// Загружаем исходные данные из JSON + LocalStorage
-async function loadHousing() {
-  try {
-    // JSON с исходными объявлениями
-    const response = await fetch('data/housing.json');
-    const initialData = await response.json();
-
-    // Загружаем дополнительно из LocalStorage
-    const savedData = JSON.parse(localStorage.getItem('housingLocal')) || [];
-
-    housingData = initialData.concat(savedData);
-    renderHousing();
-  } catch (err) {
-    console.error('Ошибка загрузки housing.json:', err);
-  }
-}
-
-// Отрисовка карточек
-function renderHousing() {
-  const container = document.getElementById('housing-list');
-  container.innerHTML = '';
-  housingData.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'housing-card';
-    card.innerHTML = `
-      <img src="${item.image}" alt="${item.title}">
-      <h3>${item.title}</h3>
-      <p>Цена: ${item.price}</p>
-      <a href="${item.link}">Подробнее</a>
-    `;
-    container.appendChild(card);
-  });
-}
-
-// Добавление нового объявления
-function addHousing() {
-  const title = document.getElementById('title').value.trim();
-  const price = document.getElementById('price').value.trim();
-  const image = document.getElementById('image').value.trim();
-  const link = document.getElementById('link').value.trim();
-
-  if(!title || !price || !image || !link) {
-    alert('Заполните все поля!');
-    return;
-  }
-
-  const newItem = { title, price, image, link };
-  housingData.push(newItem);
-
-  // Сохраняем только пользовательские объявления в LocalStorage
-  const savedData = JSON.parse(localStorage.getItem('housingLocal')) || [];
-  savedData.push(newItem);
-  localStorage.setItem('housingLocal', JSON.stringify(savedData));
-
-  // Очистка формы
-  document.getElementById('title').value = '';
-  document.getElementById('price').value = '';
-  document.getElementById('image').value = '';
-  document.getElementById('link').value = '';
-
-  renderHousing();
-}
-
-loadHousing();
-</script>
 
 </body>
 </html>
