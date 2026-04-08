@@ -3,94 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аренда жилья</title>
+<title>Экскурсии</title>
 <style>
-body { margin:0; font-family:Arial,sans-serif; background:#0d0d0d; color:white; }
-.overlay { padding:15px; }
-.header { display:flex; justify-content:space-between; align-items:center; border-radius:15px; padding:12px; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.2); margin-bottom:20px; }
-.header-left{font-size:14px;}
-.header-center{font-size:22px;font-weight:bold;text-align:center;flex:1;}
-.header-right{font-size:14px;text-align:right;}
-.cards{display:flex; flex-direction:column; gap:20px;}
-.card{background:rgba(255,255,255,0.08); border-radius:15px; overflow:hidden;}
-.card img{width:100%; height:180px; object-fit:cover;}
-.content{padding:15px;}
-.title{font-size:18px;font-weight:bold;}
-.rating{margin-top:5px;color:gold;}
-.price{margin-top:5px;color:#00ffcc;font-weight:bold;}
-.desc{font-size:14px;margin-top:5px; opacity:0.9;}
-.buttons{display:flex; gap:10px; margin-top:10px;}
-.btn{flex:1;padding:10px;text-align:center;border-radius:10px;text-decoration:none;color:white;font-weight:bold;font-size:14px;}
-.whatsapp{background:#25D366;}
-.telegram{background:#0088cc;}
-.back{display:block;margin-top:25px;padding:12px;text-align:center;border-radius:10px;background:rgba(255,255,255,0.2);text-decoration:none;color:white;}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: white;
+}
+.overlay {
+  padding: 15px;
+}
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 12px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 20px;
+}
+.header-left { font-size: 14px; }
+.header-center { font-size: 22px; font-weight: bold; text-align: center; flex: 1; }
+.header-right { font-size: 14px; text-align: right; }
+
+/* КАРТОЧКИ */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  overflow: hidden;
+}
+/* ФОТО */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+/* КОНТЕНТ */
+.content { padding: 15px; }
+.title { font-size: 18px; font-weight: bold; }
+.rating { margin-top: 5px; color: gold; }
+.price { margin-top: 5px; color: #00ffcc; font-weight: bold; }
+.desc { font-size: 14px; margin-top: 5px; opacity: 0.9; }
+
+/* КНОПКИ */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.btn {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
+
+/* КНОПКА НАЗАД */
+.back {
+  display: block;
+  margin-top: 25px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+  color: white;
+}
 </style>
 </head>
 <body>
-
 <div class="overlay">
-
+  <!-- HEADER -->
   <div class="header">
     <div class="header-left">🌤 <span id="weather">29°C</span></div>
-    <div class="header-center">🏠 Аренда жилья</div>
-    <div class="header-right"><div id="time">--:--</div><div>Phu Quoc</div></div>
+    <div class="header-center">🌴 Экскурсии</div>
+    <div class="header-right">
+      <div id="time">--:--</div>
+      <div>Phu Quoc</div>
+    </div>
   </div>
 
+  <!-- КАРТОЧКИ -->
   <div class="cards">
-
-    <!-- Квартиры -->
+    <!-- 1 -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
       <div class="content">
-        <div class="title">Квартира у моря</div>
-        <div class="rating">⭐⭐⭐⭐ (4.7)</div>
-        <div class="price">$35/ночь</div>
-        <div class="desc">Уютная квартира с балконом, до пляжа 5 мин</div>
+        <div class="title">Острова на катере</div>
+        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+        <div class="price">$45 / человек</div>
+        <div class="desc">Снорклинг, белый песок, обед включён</div>
         <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20квартира%20у%20моря" target="_blank">WhatsApp</a>
+          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20экскурсия%20на%20острова" target="_blank">WhatsApp</a>
           <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
         </div>
       </div>
     </div>
-
-    <!-- Виллы -->
+    <!-- 2 -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
       <div class="content">
-        <div class="title">Вилла с бассейном</div>
+        <div class="title">Рыбалка в океане</div>
+        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
+        <div class="price">$60</div>
+        <div class="desc">Настоящая морская рыбалка с лодки</div>
+        <div class="buttons">
+          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20рыбалка" target="_blank">WhatsApp</a>
+          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <!-- 3 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+      <div class="content">
+        <div class="title">Индивидуальный тур</div>
         <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
-        <div class="price">$120/ночь</div>
-        <div class="desc">Просторная вилла с личным бассейном и садом</div>
+        <div class="price">от $80</div>
+        <div class="desc">Маршрут под тебя: водопады, джунгли, пляжи</div>
         <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20вилла%20с%20бассейном" target="_blank">WhatsApp</a>
+          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20индивидуальный%20тур" target="_blank">WhatsApp</a>
           <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
         </div>
       </div>
     </div>
-
-    <!-- Бунгало -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691723518-34aab5a33b2c">
-      <div class="content">
-        <div class="title">Бунгало у пляжа</div>
-        <div class="rating">⭐⭐⭐⭐ (4.8)</div>
-        <div class="price">$50/ночь</div>
-        <div class="desc">Тихое бунгало, до моря 2 минуты пешком</div>
-        <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20бунгало" target="_blank">WhatsApp</a>
-          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Рабочая кнопка назад -->
-  <a class="back" href="index.html">⬅ Назад на главную</a>
-
+  <a class="back" href="index.html">⬅ Назад</a>
 </div>
 
 <script>
+// Время
 function updateTime() {
   const now = new Date();
   document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
@@ -98,6 +155,5 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 </script>
-
 </body>
 </html>
