@@ -13,27 +13,54 @@
       color: #fff;
     }
 
+    /* Рамка по всему сайту */
+    .site-border {
+      border: 4px solid #fff;
+      padding: 10px;
+      box-sizing: border-box;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Верхняя шапка */
     .header {
+      background: #111;
       padding: 20px;
       text-align: center;
       font-size: 28px;
       font-weight: bold;
-      background: #111;
-      color: white;
+      border-bottom: 2px solid #fff;
     }
 
-    /* Контейнер карточек */
+    /* Контент */
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Футер */
+    .footer {
+      background: #111;
+      padding: 15px 20px;
+      border-top: 2px solid #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    /* Карточки Marketplace */
     .cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      padding: 20px;
+      margin-bottom: 20px;
     }
 
-    /* Одна карточка */
     .card {
       background: #111;
-      width: 220px;
+      width: 200px;
       margin: 10px;
       border-radius: 10px;
       overflow: hidden;
@@ -49,78 +76,72 @@
 
     .card img {
       width: 100%;
-      height: 140px;
+      height: 130px;
       object-fit: cover;
       display: block;
     }
 
     .card-title {
-      padding: 15px;
-      font-size: 16px;
+      padding: 10px;
       font-weight: bold;
       color: white;
     }
-
-    /* Новости */
-    .news {
-      margin: 20px;
-      padding: 20px;
-      background: #111;
-      border-radius: 10px;
-    }
-
-    .news h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #555;
-      padding-bottom: 5px;
-    }
-
-    .news-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #333;
-    }
-
-    .news-item:last-child {
-      border-bottom: none;
-    }
   </style>
 </head>
+
 <body>
+  <div class="site-border">
 
-  <div class="header">HESS Marketplace</div>
+    <!-- Верхняя шапка -->
+    <div class="header">HESS Marketplace</div>
 
-  <!-- Карточки с картинками и кнопками -->
-  <div class="cards">
-    <div class="card">
-      <img src="images/villa.jpg" alt="Аренда жилья">
-      <div class="card-title">Аренда жилья</div>
+    <!-- Контент -->
+    <div class="content">
+
+      <!-- Карточки -->
+      <div class="cards">
+        <div class="card">
+          <img src="images/villa.jpg" alt="Аренда жилья">
+          <div class="card-title">Аренда жилья</div>
+        </div>
+        <div class="card">
+          <img src="images/bike.jpg" alt="Аренда байков">
+          <div class="card-title">Аренда байков</div>
+        </div>
+        <div class="card">
+          <img src="images/services.jpg" alt="Услуги">
+          <div class="card-title">Услуги</div>
+        </div>
+        <div class="card">
+          <img src="images/ads.jpg" alt="Объявления">
+          <div class="card-title">Объявления</div>
+        </div>
+        <div class="card">
+          <img src="images/sneakers.jpg" alt="Маркетплейс">
+          <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
+        </div>
+      </div>
+
     </div>
-    <div class="card">
-      <img src="images/bike.jpg" alt="Аренда байков">
-      <div class="card-title">Аренда байков</div>
+
+    <!-- Футер с погодой и временем -->
+    <div class="footer">
+      <div id="time">Время: --:--:--</div>
+      <div id="weather">Погода: 28°C, влажность 60%</div>
     </div>
-    <div class="card">
-      <img src="images/services.jpg" alt="Услуги">
-      <div class="card-title">Услуги</div>
-    </div>
-    <div class="card">
-      <img src="images/ads.jpg" alt="Объявления">
-      <div class="card-title">Объявления</div>
-    </div>
-    <div class="card">
-      <img src="images/sneakers.jpg" alt="Маркетплейс">
-      <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
-    </div>
+
   </div>
 
-  <!-- Новости Фукуока -->
-  <div class="news">
-    <h2>Новости Фукуока</h2>
-    <div class="news-item">Новое кафе открылось в центре острова</div>
-    <div class="news-item">Новая услуга по аренде электросамокатов</div>
-    <div class="news-item">Скидки на жильё в районе Онланг</div>
-  </div>
+  <script>
+    // Скрипт для отображения текущего времени
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('time').textContent = 'Время: ' + timeString;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
 
 </body>
 </html>
