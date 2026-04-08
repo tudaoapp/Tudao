@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HESS Marketplace</title>
+
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d0d0d">
 
@@ -81,34 +82,34 @@ body {
   <!-- КАРТОЧКИ -->
   <div class="cards">
 
-    <div class="card" onclick="openPage('housing')">
+    <div class="card" onclick="openPage('data/housing/index')">
       <div class="icon">🏠</div>
       <div>Аренда жилья</div>
     </div>
 
-    <div class="card" onclick="openPage('bikes')">
+    <div class="card" onclick="openPage('data/bikes/index')">
       <div class="icon">🏍</div>
       <div>Аренда байков</div>
     </div>
 
-    <div class="card" onclick="openPage('services')">
+    <div class="card" onclick="openPage('data/services/index')">
       <div class="icon">🛠</div>
       <div>Услуги</div>
     </div>
 
-    <div class="card" onclick="openPage('ads')">
+    <div class="card" onclick="openPage('data/excursions/index')">
+      <div class="icon">🌴</div>
+      <div>Экскурсии</div>
+    </div>
+
+    <div class="card" onclick="openPage('data/ads/index')">
       <div class="icon">📋</div>
       <div>Объявления</div>
     </div>
 
-    <div class="card" onclick="openPage('marketplace')">
+    <div class="card" onclick="openPage('data/marketplace/index')">
       <div class="icon">👟</div>
       <div>Marketplace</div>
-    </div>
-
-    <div class="card" onclick="openPage('excursions')">
-      <div class="icon">🌴</div>
-      <div>Экскурсии</div>
     </div>
 
   </div>
@@ -116,7 +117,7 @@ body {
 </div>
 
 <script>
-// ВРЕМЯ
+// Время
 function updateTime() {
   const now = new Date();
   document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
@@ -124,12 +125,12 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// ПЕРЕХОДЫ
-function openPage(name) {
-  window.location.href = name + '.html';
+// Переходы по страницам
+function openPage(path) {
+  window.location.href = path + ".html";
 }
 
-// SERVICE WORKER
+// Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
