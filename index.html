@@ -1,31 +1,198 @@
-<div class="cards">
-  <!-- Аренда жилья -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Аренда жилья">
-    <div class="card-title">Аренда жилья</div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HESS Marketplace</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  /* Шапка */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    padding: 15px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .header-left, .header-center, .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-left, .header-right {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .header-center {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .icon {
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  /* Контент */
+  .content {
+    padding: 20px;
+  }
+
+  /* Карточки Marketplace */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background: rgba(0,0,0,0.5);
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-title {
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Новости */
+  .news {
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+  }
+
+  .news h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+  }
+
+  .news-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <div class="header">
+    <div class="header-left">
+      <div id="time"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Часы"> --:--:--</div>
+      <div id="flights">
+        Прилетело: --<br>
+        Вылетело: --
+      </div>
+    </div>
+
+    <div class="header-center">HESS Marketplace</div>
+
+    <div class="header-right" id="weather">
+      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1163/1163657.png" alt="Погода">
+      Погода: 28°C, влажность 60%
+    </div>
   </div>
 
-  <!-- Аренда байков -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1587825140708-8c0c8b1492d1?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
-    <div class="card-title">Аренда байков</div>
+  <!-- Контент -->
+  <div class="content">
+
+    <!-- Карточки -->
+    <div class="cards">
+      <!-- Аренда жилья -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Аренда жилья">
+        <div class="card-title">Аренда жилья</div>
+      </div>
+
+      <!-- Аренда байков -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587825140708-8c0c8b1492d1?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
+        <div class="card-title">Аренда байков</div>
+      </div>
+
+      <!-- Услуги -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581091215366-7e6eab9ec062?auto=format&fit=crop&w=400&q=80" alt="Услуги">
+        <div class="card-title">Услуги</div>
+      </div>
+
+      <!-- Объявления -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1571607382640-26aa18b1f5cd?auto=format&fit=crop&w=400&q=80" alt="Объявления">
+        <div class="card-title">Объявления</div>
+      </div>
+
+      <!-- Маркетплейс (кроссовки / одежда) -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600185366526-5d391317e145?auto=format&fit=crop&w=400&q=80" alt="Маркетплейс">
+        <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
+      </div>
+    </div>
+
+    <!-- Новости -->
+    <div class="news">
+      <h2>Новости Фукуока</h2>
+      <div class="news-item">Новое кафе открылось в центре острова</div>
+      <div class="news-item">Новая услуга по аренде электросамокатов</div>
+      <div class="news-item">Скидки на жильё в районе Онланг</div>
+    </div>
+
   </div>
 
-  <!-- Услуги -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581091215366-7e6eab9ec062?auto=format&fit=crop&w=400&q=80" alt="Услуги">
-    <div class="card-title">Услуги</div>
-  </div>
+<script>
+  // Время
+  function updateTime() {
+    const now = new Date();
+    document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
 
-  <!-- Объявления -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1571607382640-26aa18b1f5cd?auto=format&fit=crop&w=400&q=80" alt="Объявления">
-    <div class="card-title">Объявления</div>
-  </div>
+  // Статистика прилетов/вылетов
+  function updateFlights() {
+    document.getElementById('flights').innerHTML =
+      'Прилетело: 25<br>Вылетело: 18';
+  }
+  updateFlights();
+</script>
 
-  <!-- Маркетплейс (кроссовки / одежда) -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600185366526-5d391317e145?auto=format&fit=crop&w=400&q=80" alt="Маркетплейс">
-    <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
-  </div>
-</div>
+</body>
+</html>
