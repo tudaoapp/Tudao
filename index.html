@@ -3,155 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аренда жилья</title>
+<title>Главная — Каталог разделов</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
   h1 { margin-bottom: 20px; }
-  .catalog { display: flex; flex-wrap: wrap; gap: 15px; }
-  .card { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); width: 250px; }
-  .card img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; display: block; }
-  .gallery img { max-width: 100px; margin-right: 5px; margin-bottom: 5px; border-radius: 3px; }
-  .form-group { margin-bottom: 15px; }
-  label { display: block; font-weight: bold; margin-bottom: 5px; }
-  input[type="text"], textarea, input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; }
-  input[type="file"] { margin-top: 5px; }
-  button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 10px; }
-  .button-back { display: inline-block; padding: 8px 15px; margin-bottom: 20px; background: #555; color: #fff; text-decoration: none; border-radius: 5px; }
-  .button-back:hover { background: #333; }
+  .sections { display: flex; flex-wrap: wrap; gap: 15px; }
+  .section-card { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); width: 200px; text-align: center; }
+  .section-card h3 { margin-bottom: 10px; }
+  .button { display: inline-block; padding: 10px 20px; background: #007bff; color: #fff; text-decoration: none; border-radius: 5px; }
+  .button:hover { background: #0056b3; }
 </style>
 </head>
 <body>
 
-<a href="index.html" class="button-back">← Назад на главную</a>
-<h1>Каталог аренды жилья</h1>
+<h1>Каталог разделов</h1>
 
-<!-- Каталог карточек -->
-<div class="catalog" id="catalogContainer">
-  <!-- Здесь будут появляться карточки динамически -->
+<div class="sections">
+  <div class="section-card">
+    <h3>Аренда жилья</h3>
+    <a href="housing.html" class="button">Перейти</a>
+  </div>
+  <div class="section-card">
+    <h3>Аренда байков</h3>
+    <a href="#" class="button">Перейти</a>
+  </div>
+  <div class="section-card">
+    <h3>Экскурсии</h3>
+    <a href="#" class="button">Перейти</a>
+  </div>
+  <div class="section-card">
+    <h3>Услуги</h3>
+    <a href="#" class="button">Перейти</a>
+  </div>
+  <div class="section-card">
+    <h3>Маркетплейс</h3>
+    <a href="#" class="button">Перейти</a>
+  </div>
 </div>
-
-<hr>
-
-<h2>Загрузить новое объявление</h2>
-<div class="form-group">
-  <label for="title">Заголовок</label>
-  <input type="text" id="title" placeholder="Например: Уютный дом у моря, 4 комнаты">
-</div>
-
-<div class="form-group">
-  <label for="photos">Фотографии</label>
-  <input type="file" id="photos" multiple accept="image/*">
-  <div class="gallery" id="preview"></div>
-</div>
-
-<div class="form-group">
-  <label for="description">Описание</label>
-  <textarea id="description" rows="5" placeholder="Подробное описание жилья"></textarea>
-</div>
-
-<div class="form-group">
-  <label for="price">Цена</label>
-  <input type="text" id="price" placeholder="Например: 20 000 000 VND / месяц">
-</div>
-
-<div class="form-group">
-  <label for="location">Локация</label>
-  <input type="text" id="location" placeholder="Город, район">
-</div>
-
-<div class="form-group">
-  <label for="contact">Контакты</label>
-  <input type="text" id="contact" placeholder="Телефон или ссылка на профиль">
-</div>
-
-<button id="createCard">Добавить карточку</button>
-
-<script>
-// Превью загруженных фото
-const photosInput = document.getElementById('photos');
-const preview = document.getElementById('preview');
-photosInput.addEventListener('change', () => {
-  preview.innerHTML = '';
-  Array.from(photosInput.files).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      preview.appendChild(img);
-    };
-    reader.readAsDataURL(file);
-  });
-});
-
-// Динамическое создание карточек
-document.getElementById('createCard').addEventListener('click', () => {
-  const title = document.getElementById('title').value.trim();
-  const description = document.getElementById('description').value.trim();
-  const price = document.getElementById('price').value.trim();
-  const location = document.getElementById('location').value.trim();
-  const contact = document.getElementById('contact').value.trim();
-
-  if (!title || !description || !price || !location || !contact) {
-    alert("Пожалуйста, заполните все поля!");
-    return;
-  }
-
-  const catalog = document.getElementById('catalogContainer');
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  // Основная фотография
-  if (photosInput.files[0]) {
-    const mainImg = document.createElement('img');
-    mainImg.src = URL.createObjectURL(photosInput.files[0]);
-    card.appendChild(mainImg);
-  }
-
-  const h3 = document.createElement('h3');
-  h3.textContent = title;
-  card.appendChild(h3);
-
-  const desc = document.createElement('p');
-  desc.textContent = description;
-  card.appendChild(desc);
-
-  const pPrice = document.createElement('p');
-  pPrice.innerHTML = `<strong>Цена:</strong> ${price}`;
-  card.appendChild(pPrice);
-
-  const pLocation = document.createElement('p');
-  pLocation.innerHTML = `<strong>Локация:</strong> ${location}`;
-  card.appendChild(pLocation);
-
-  const pContact = document.createElement('p');
-  pContact.innerHTML = `<strong>Контакты:</strong> ${contact}`;
-  card.appendChild(pContact);
-
-  // Галерея дополнительных фото
-  if (photosInput.files.length > 1) {
-    const galleryDiv = document.createElement('div');
-    galleryDiv.className = 'gallery';
-    Array.from(photosInput.files).forEach((file, index) => {
-      if (index === 0) return; // пропустить основную фото
-      const img = document.createElement('img');
-      img.src = URL.createObjectURL(file);
-      galleryDiv.appendChild(img);
-    });
-    card.appendChild(galleryDiv);
-  }
-
-  catalog.appendChild(card);
-
-  // Очистка формы
-  document.getElementById('title').value = '';
-  document.getElementById('description').value = '';
-  document.getElementById('price').value = '';
-  document.getElementById('location').value = '';
-  document.getElementById('contact').value = '';
-  preview.innerHTML = '';
-  photosInput.value = '';
-});
-</script>
 
 </body>
 </html>
