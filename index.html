@@ -6,7 +6,6 @@
 
 <title>HESS Marketplace</title>
 
-<!-- PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d0d0d">
 
@@ -14,13 +13,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
   color: white;
 }
 
-/* затемнение */
 .overlay {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
   min-height: 100vh;
   padding: 15px;
 }
@@ -30,31 +28,27 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid rgba(255,255,255,0.2);
   border-radius: 15px;
-  padding: 10px;
+  padding: 12px;
   background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* левая часть (погода) */
 .header-left {
   font-size: 14px;
 }
 
-/* центр */
 .header-center {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
-  text-align: center;
 }
 
-/* правая часть (время) */
 .header-right {
   font-size: 14px;
   text-align: right;
 }
 
-/* КАРТОЧКИ */
+/* КНОПКИ */
 .cards {
   margin-top: 25px;
   display: grid;
@@ -65,25 +59,21 @@ body {
 .card {
   background: rgba(255,255,255,0.1);
   border-radius: 15px;
-  overflow: hidden;
+  padding: 20px;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
+  font-size: 18px;
 }
 
 .card:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
+  opacity: 0.8;
 }
 
-.card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-}
-
-.card-title {
-  padding: 10px;
-  font-weight: bold;
+.icon {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -94,51 +84,46 @@ body {
 
   <!-- HEADER -->
   <div class="header">
-
-    <!-- Погода -->
     <div class="header-left">
-      🌤 <span id="weather">28°C</span>
+      🌤 <span id="weather">29°C</span>
     </div>
 
-    <!-- Название -->
     <div class="header-center">
       HESS Marketplace
     </div>
 
-    <!-- Время -->
     <div class="header-right">
       <div id="time">--:--</div>
       <div>Phu Quoc</div>
     </div>
-
   </div>
 
-  <!-- КАРТОЧКИ -->
+  <!-- КНОПКИ -->
   <div class="cards">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-      <div class="card-title">Аренда жилья</div>
+    <div class="card" onclick="openPage('housing')">
+      <div class="icon">🏠</div>
+      Аренда жилья
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6">
-      <div class="card-title">Аренда байков</div>
+    <div class="card" onclick="openPage('bikes')">
+      <div class="icon">🏍</div>
+      Аренда байков
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-      <div class="card-title">Услуги</div>
+    <div class="card" onclick="openPage('services')">
+      <div class="icon">🛠</div>
+      Услуги
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1581090700227-ff380df03b0d">
-      <div class="card-title">Объявления</div>
+    <div class="card" onclick="openPage('ads')">
+      <div class="icon">📋</div>
+      Объявления
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
-      <div class="card-title">Marketplace</div>
+    <div class="card" onclick="openPage('marketplace')">
+      <div class="icon">👟</div>
+      Marketplace
     </div>
 
   </div>
@@ -149,18 +134,21 @@ body {
 // ВРЕМЯ
 function updateTime() {
   const now = new Date();
-  const time = now.toLocaleTimeString('ru-RU');
-  document.getElementById('time').textContent = time;
+  document.getElementById('time').textContent =
+    now.toLocaleTimeString('ru-RU');
 }
 setInterval(updateTime, 1000);
 updateTime();
 
-// ПРИМЕР ПОГОДЫ (потом подключим API)
-document.getElementById('weather').textContent = "29°C";
-</script>
+// КНОПКИ
+function openPage(page) {
+  alert("Раздел: " + page);
 
-<!-- SERVICE WORKER -->
-<script>
+  // позже сделаем реальные страницы
+  // window.location.href = page + ".html";
+}
+
+// SERVICE WORKER
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
