@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
+  background-size: cover;
   color: white;
 }
 
@@ -69,9 +70,7 @@ body {
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      🌤 <span id="weather">29°C</span>
-    </div>
+    <div class="header-left">🌤 <span id="weather">29°C</span></div>
     <div class="header-center">HESS Marketplace</div>
     <div class="header-right">
       <div id="time">--:--</div>
@@ -82,32 +81,32 @@ body {
   <!-- КАРТОЧКИ -->
   <div class="cards">
 
-    <div class="card" onclick="openPage('data/housing/index')">
+    <div class="card" onclick="openPage('housing')">
       <div class="icon">🏠</div>
       <div>Аренда жилья</div>
     </div>
 
-    <div class="card" onclick="openPage('data/bikes/index')">
+    <div class="card" onclick="openPage('bikes')">
       <div class="icon">🏍</div>
       <div>Аренда байков</div>
     </div>
 
-    <div class="card" onclick="openPage('data/services/index')">
+    <div class="card" onclick="openPage('services')">
       <div class="icon">🛠</div>
       <div>Услуги</div>
     </div>
 
-    <div class="card" onclick="openPage('data/ads/index')">
+    <div class="card" onclick="openPage('ads')">
       <div class="icon">📋</div>
       <div>Объявления</div>
     </div>
 
-    <div class="card" onclick="openPage('data/marketplace/index')">
+    <div class="card" onclick="openPage('marketplace')">
       <div class="icon">👟</div>
       <div>Marketplace</div>
     </div>
 
-    <div class="card" onclick="openPage('data/excursions/index')">
+    <div class="card" onclick="openPage('excursions')">
       <div class="icon">🌴</div>
       <div>Экскурсии</div>
     </div>
@@ -120,15 +119,14 @@ body {
 // ВРЕМЯ
 function updateTime() {
   const now = new Date();
-  document.getElementById('time').textContent =
-    now.toLocaleTimeString('ru-RU');
+  document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
 }
 setInterval(updateTime, 1000);
 updateTime();
 
-// Переходы по страницам
-function openPage(path) {
-  window.location.href = path + ".html";
+// ПЕРЕХОДЫ
+function openPage(name) {
+  window.location.href = name + '.html';
 }
 
 // SERVICE WORKER
