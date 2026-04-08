@@ -144,9 +144,17 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// ПЕРЕХОДЫ
+// ПЕРЕХОДЫ (ФИНАЛ)
 function openPage(page) {
-  window.location.href = page + ".html";
+
+  // страницы, которые лежат в папке /data/
+  const pagesInData = ['housing', 'excursions'];
+
+  if (pagesInData.includes(page)) {
+    window.location.href = "data/" + page + "/";
+  } else {
+    window.location.href = page + ".html";
+  }
 }
 
 // SERVICE WORKER
