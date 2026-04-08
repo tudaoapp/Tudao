@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HESS Marketplace</title>
-
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d0d0d">
 
@@ -33,19 +32,9 @@ body {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.header-left {
-  font-size: 14px;
-}
-
-.header-center {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.header-right {
-  font-size: 14px;
-  text-align: right;
-}
+.header-left { font-size: 14px; }
+.header-center { font-size: 22px; font-weight: bold; }
+.header-right { font-size: 14px; text-align: right; }
 
 /* КАРТОЧКИ */
 .cards {
@@ -70,10 +59,7 @@ body {
   opacity: 0.8;
 }
 
-.icon {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
+.icon { font-size: 38px; margin-bottom: 10px; }
 </style>
 </head>
 
@@ -86,11 +72,7 @@ body {
     <div class="header-left">
       🌤 <span id="weather">29°C</span>
     </div>
-
-    <div class="header-center">
-      HESS Marketplace
-    </div>
-
+    <div class="header-center">HESS Marketplace</div>
     <div class="header-right">
       <div id="time">--:--</div>
       <div>Phu Quoc</div>
@@ -100,32 +82,32 @@ body {
   <!-- КАРТОЧКИ -->
   <div class="cards">
 
-    <div class="card" onclick="openPage('housing')">
+    <div class="card" onclick="openPage('data/housing/index')">
       <div class="icon">🏠</div>
       <div>Аренда жилья</div>
     </div>
 
-    <div class="card" onclick="openPage('bikes')">
+    <div class="card" onclick="openPage('data/bikes/index')">
       <div class="icon">🏍</div>
       <div>Аренда байков</div>
     </div>
 
-    <div class="card" onclick="openPage('services')">
+    <div class="card" onclick="openPage('data/services/index')">
       <div class="icon">🛠</div>
       <div>Услуги</div>
     </div>
 
-    <div class="card" onclick="openPage('ads')">
+    <div class="card" onclick="openPage('data/ads/index')">
       <div class="icon">📋</div>
       <div>Объявления</div>
     </div>
 
-    <div class="card" onclick="openPage('marketplace')">
+    <div class="card" onclick="openPage('data/marketplace/index')">
       <div class="icon">👟</div>
       <div>Marketplace</div>
     </div>
 
-    <div class="card" onclick="openPage('excursions')">
+    <div class="card" onclick="openPage('data/excursions/index')">
       <div class="icon">🌴</div>
       <div>Экскурсии</div>
     </div>
@@ -144,17 +126,9 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// ПЕРЕХОДЫ (ФИНАЛ)
-function openPage(page) {
-
-  // страницы, которые лежат в папке /data/
-  const pagesInData = ['housing', 'excursions'];
-
-  if (pagesInData.includes(page)) {
-    window.location.href = "data/" + page + "/";
-  } else {
-    window.location.href = page + ".html";
-  }
+// Переходы по страницам
+function openPage(path) {
+  window.location.href = path + ".html";
 }
 
 // SERVICE WORKER
