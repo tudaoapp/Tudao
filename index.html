@@ -3,24 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Карточка аренды жилья</title>
+<title>Аренда жилья</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
-  h2 { margin-bottom: 20px; }
+  h1 { margin-bottom: 20px; }
+  .catalog { display: flex; flex-wrap: wrap; gap: 15px; }
+  .card { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); width: 250px; }
+  .card img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; display: block; }
+  .gallery img { max-width: 100px; margin-right: 5px; margin-bottom: 5px; border-radius: 3px; }
   .form-group { margin-bottom: 15px; }
   label { display: block; font-weight: bold; margin-bottom: 5px; }
   input[type="text"], textarea, input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; }
   input[type="file"] { margin-top: 5px; }
   button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 10px; }
-  .card { background: #fff; padding: 15px; margin-top: 20px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
-  .card img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; display: block; }
-  .gallery img { max-width: 100px; margin-right: 5px; margin-bottom: 5px; border-radius: 3px; }
+  .button-back { display: inline-block; padding: 8px 15px; margin-bottom: 20px; background: #555; color: #fff; text-decoration: none; border-radius: 5px; }
+  .button-back:hover { background: #333; }
 </style>
 </head>
 <body>
 
-<h2>Создать карточку аренды жилья</h2>
+<a href="index.html" class="button-back">← Назад на главную</a>
+<h1>Каталог аренды жилья</h1>
 
+<!-- Каталог карточек -->
+<div class="catalog" id="catalogContainer">
+  <!-- Здесь будут появляться карточки динамически -->
+</div>
+
+<hr>
+
+<h2>Загрузить новое объявление</h2>
 <div class="form-group">
   <label for="title">Заголовок</label>
   <input type="text" id="title" placeholder="Например: Уютный дом у моря, 4 комнаты">
@@ -52,15 +64,12 @@
   <input type="text" id="contact" placeholder="Телефон или ссылка на профиль">
 </div>
 
-<button id="createCard">Создать карточку</button>
-
-<div id="cardContainer"></div>
+<button id="createCard">Добавить карточку</button>
 
 <script>
+// Превью загруженных фото
 const photosInput = document.getElementById('photos');
 const preview = document.getElementById('preview');
-
-// Превью загруженных фото
 photosInput.addEventListener('change', () => {
   preview.innerHTML = '';
   Array.from(photosInput.files).forEach(file => {
@@ -74,7 +83,7 @@ photosInput.addEventListener('change', () => {
   });
 });
 
-// Создание карточки
+// Динамическое создание карточек
 document.getElementById('createCard').addEventListener('click', () => {
   const title = document.getElementById('title').value.trim();
   const description = document.getElementById('description').value.trim();
@@ -87,7 +96,7 @@ document.getElementById('createCard').addEventListener('click', () => {
     return;
   }
 
-  const cardContainer = document.getElementById('cardContainer');
+  const catalog = document.getElementById('catalogContainer');
   const card = document.createElement('div');
   card.className = 'card';
 
@@ -131,7 +140,7 @@ document.getElementById('createCard').addEventListener('click', () => {
     card.appendChild(galleryDiv);
   }
 
-  cardContainer.appendChild(card);
+  catalog.appendChild(card);
 
   // Очистка формы
   document.getElementById('title').value = '';
