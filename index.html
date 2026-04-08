@@ -26,40 +26,45 @@ header .left, header .right { font-size:14px; }
 </header>
 
 <div class="sections">
+  <!-- Аренда жилья -->
   <div class="section-card">
-    <img src="https://via.placeholder.com/220x120?text=Аренда+жилья" alt="Аренда жилья">
+    <img src="https://images.unsplash.com/photo-1560185127-6a9d3f8f19c2?auto=format&fit=crop&w=220&q=80" alt="Аренда жилья">
     <h3>Аренда жилья</h3>
     <a href="housing.html" class="button">Перейти</a>
     <a href="https://wa.me/123456789" target="_blank" class="button">WhatsApp</a>
     <a href="https://t.me/username" target="_blank" class="button">Telegram</a>
   </div>
 
+  <!-- Аренда байков и авто -->
   <div class="section-card">
-    <img src="https://via.placeholder.com/220x120?text=Аренда+байков+и+авто" alt="Аренда байков и авто">
+    <img src="https://images.unsplash.com/photo-1600256209485-f88f0f37b5b6?auto=format&fit=crop&w=220&q=80" alt="Аренда байков и авто">
     <h3>Аренда байков и авто</h3>
     <a href="#" class="button">Перейти</a>
     <a href="https://wa.me/123456789" target="_blank" class="button">WhatsApp</a>
     <a href="https://t.me/username" target="_blank" class="button">Telegram</a>
   </div>
 
+  <!-- Услуги -->
   <div class="section-card">
-    <img src="https://via.placeholder.com/220x120?text=Услуги" alt="Услуги">
+    <img src="https://images.unsplash.com/photo-1581091215367-6d7d0652d7a5?auto=format&fit=crop&w=220&q=80" alt="Услуги">
     <h3>Услуги</h3>
     <a href="#" class="button">Перейти</a>
     <a href="https://wa.me/123456789" target="_blank" class="button">WhatsApp</a>
     <a href="https://t.me/username" target="_blank" class="button">Telegram</a>
   </div>
 
+  <!-- Экскурсии -->
   <div class="section-card">
-    <img src="https://via.placeholder.com/220x120?text=Экскурсии" alt="Экскурсии">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=220&q=80" alt="Экскурсии">
     <h3>Экскурсии</h3>
     <a href="#" class="button">Перейти</a>
     <a href="https://wa.me/123456789" target="_blank" class="button">WhatsApp</a>
     <a href="https://t.me/username" target="_blank" class="button">Telegram</a>
   </div>
 
+  <!-- Marketplace -->
   <div class="section-card">
-    <img src="https://via.placeholder.com/220x120?text=Marketplace" alt="Marketplace">
+    <img src="https://images.unsplash.com/photo-1598300050197-1b7c582b7e7b?auto=format&fit=crop&w=220&q=80" alt="Marketplace">
     <h3>Marketplace</h3>
     <a href="#" class="button">Перейти</a>
     <a href="https://wa.me/123456789" target="_blank" class="button">WhatsApp</a>
@@ -68,11 +73,9 @@ header .left, header .right { font-size:14px; }
 </div>
 
 <script>
-// Часы
 function updateClock() {
   const now = new Date();
-  const clock = document.getElementById('clock');
-  clock.textContent = now.toLocaleTimeString();
+  document.getElementById('clock').textContent = now.toLocaleTimeString();
 }
 setInterval(updateClock, 1000);
 updateClock();
