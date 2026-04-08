@@ -13,7 +13,7 @@
     color: #fff;
   }
 
-  /* Восстанавливаем рамку для шапки */
+  /* Рамка для шапки */
   .header {
     display: flex;
     justify-content: space-between;
@@ -30,17 +30,19 @@
     align-items: center;
   }
 
+  /* Цвет текста черный для левой и правой части */
   .header-left, .header-right {
     font-size: 14px;
     text-align: center;
     flex: 1;
+    color: black;
   }
 
   .header-center {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    color: black; /* цвет названия черный */
+    color: black; /* Название черное */
     border: 2px solid rgba(0,0,0,0.5); /* рамка вокруг названия */
     padding: 5px 15px;
     border-radius: 10px;
@@ -117,6 +119,7 @@
 </div>
 
 <script>
+  // Время
   function updateTime() {
     const now = new Date();
     document.getElementById('time').textContent = now.toLocaleTimeString();
@@ -124,6 +127,7 @@
   setInterval(updateTime, 1000);
   updateTime();
 
+  // Прилет/вылет
   document.getElementById('flights').innerHTML = 'Прилетело: 25<br>Вылетело: 18';
 </script>
 
