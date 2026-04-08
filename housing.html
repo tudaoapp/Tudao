@@ -3,102 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аренда жилья</title>
+<title>Аренда недвижимости</title>
 <style>
-body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: white; }
-.overlay { padding: 15px; }
-/* HEADER */
-.header { display: flex; justify-content: space-between; align-items: center; border-radius: 15px; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; }
-.header-left { font-size: 14px; }
-.header-center { font-size: 22px; font-weight: bold; text-align: center; flex: 1; }
-.header-right { font-size: 14px; text-align: right; }
-/* КАРТОЧКИ */
-.cards { display: flex; flex-direction: column; gap: 20px; }
-.card { background: rgba(255,255,255,0.08); border-radius: 15px; overflow: hidden; }
-.card img { width: 100%; height: 180px; object-fit: cover; }
-.content { padding: 15px; }
-.title { font-size: 18px; font-weight: bold; }
-.price { margin-top: 5px; color: #00ffcc; font-weight: bold; }
-.desc { font-size: 14px; margin-top: 5px; opacity: 0.9; }
-/* КНОПКИ */
-.buttons { display: flex; gap: 10px; margin-top: 10px; }
-.btn { flex: 1; padding: 10px; text-align: center; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; font-size: 14px; }
-.whatsapp { background: #25D366; }
-.telegram { background: #0088cc; }
-.back { display: block; margin-top: 25px; padding: 12px; text-align: center; border-radius: 10px; background: rgba(255,255,255,0.2); text-decoration: none; color: white; }
+body { font-family: Arial, sans-serif; padding:20px; background:#f5f5f5; }
+.button-back { display:inline-block; margin-bottom:20px; padding:8px 15px; background:#555; color:#fff; text-decoration:none; border-radius:5px; }
+.button-back:hover { background:#333; }
+h1,h2 { margin-bottom:20px; }
+.catalog { display:flex; flex-wrap:wrap; gap:15px; }
+.card { background:#fff; border-radius:5px; padding:10px; width:250px; box-shadow:0 0 5px rgba(0,0,0,0.1); }
+.card img { width:100%; height:150px; object-fit:cover; border-radius:5px; margin-bottom:5px; }
+.card .gallery img { width:60px; height:60px; object-fit:cover; margin:2px; border-radius:3px; }
+.form-group { margin-bottom:15px; }
+input[type=text],textarea,input[type=file] { width:100%; padding:8px; box-sizing:border-box; }
+button, .button { padding:10px 20px; font-size:16px; cursor:pointer; margin-top:10px; text-align:center; border:none; }
+.button { display:block; background:#007bff; color:#fff; border-radius:5px; text-decoration:none; }
+.button:hover { background:#0056b3; }
 </style>
 </head>
 <body>
-<div class="overlay">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-left">🌤 <span id="weather">29°C</span></div>
-    <div class="header-center">🏠 Аренда жилья</div>
-    <div class="header-right">
-      <div id="time">--:--</div>
-      <div>Phu Quoc</div>
-    </div>
-  </div>
+<a href="index.html" class="button-back">← Назад на главную</a>
+<h1>Аренда недвижимости</h1>
 
-  <!-- КАРТОЧКИ -->
-  <div class="cards">
-    <!-- Квартира -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1560185127-6e39c90f0a17">
-      <div class="content">
-        <div class="title">Квартира у моря</div>
-        <div class="price">$30 / ночь</div>
-        <div class="desc">Современная квартира с балконом, рядом пляж</div>
-        <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20квартира" target="_blank">WhatsApp</a>
-          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
-        </div>
-      </div>
-    </div>
+<div class="catalog" id="catalogContainer"></div>
 
-    <!-- Вилла -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-      <div class="content">
-        <div class="title">Вилла у моря</div>
-        <div class="price">$80 / ночь</div>
-        <div class="desc">Просторная вилла с бассейном и видом на океан</div>
-        <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20вилла" target="_blank">WhatsApp</a>
-          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
-        </div>
-      </div>
-    </div>
+<hr>
+<h2>Загрузить новое объявление</h2>
 
-    <!-- Бунгало -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
-      <div class="content">
-        <div class="title">Бунгало у моря</div>
-        <div class="price">$50 / ночь</div>
-        <div class="desc">Уютное бунгало, пешком до пляжа 5 минут</div>
-        <div class="buttons">
-          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20бунгало" target="_blank">WhatsApp</a>
-          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Назад -->
-  <a class="back" href="index.html">⬅ Назад</a>
-
+<div class="form-group">
+  <label for="title">Заголовок</label>
+  <input type="text" id="title" placeholder="Например: Уютный дом у моря">
 </div>
 
+<div class="form-group">
+  <label for="photos">Фотографии</label>
+  <input type="file" id="photos" multiple accept="image/*">
+  <div class="gallery" id="preview"></div>
+</div>
+
+<div class="form-group">
+  <label for="description">Описание</label>
+  <textarea id="description" rows="5" placeholder="Подробное описание жилья"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="price">Цена</label>
+  <input type="text" id="price" placeholder="Например: 20 000 000 VND / месяц">
+</div>
+
+<div class="form-group">
+  <label for="location">Локация</label>
+  <input type="text" id="location" placeholder="Город, район">
+</div>
+
+<div class="form-group">
+  <label for="contact">Контакты</label>
+  <input type="text" id="contact" placeholder="Телефон или ссылка на профиль">
+</div>
+
+<button id="createCard">Добавить карточку</button>
+
 <script>
-function updateTime() {
-  const now = new Date();
-  document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
+const photosInput = document.getElementById('photos');
+const preview = document.getElementById('preview');
+const catalog = document.getElementById('catalogContainer');
+
+let cardsData = JSON.parse(localStorage.getItem('housingCards')) || [];
+
+// Функция отображения карточек
+function renderCards() {
+  catalog.innerHTML = '';
+  cardsData.forEach(cardData => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    if (cardData.photos.length) {
+      const mainImg = document.createElement('img');
+      mainImg.src = cardData.photos[0];
+      card.appendChild(mainImg);
+    }
+
+    const h3 = document.createElement('h3');
+    h3.textContent = cardData.title;
+    card.appendChild(h3);
+
+    const desc = document.createElement('p');
+    desc.textContent = cardData.description;
+    card.appendChild(desc);
+
+    const pPrice = document.createElement('p');
+    pPrice.innerHTML = `<strong>Цена:</strong> ${cardData.price}`;
+    card.appendChild(pPrice);
+
+    const pLocation = document.createElement('p');
+    pLocation.innerHTML = `<strong>Локация:</strong> ${cardData.location}`;
+    card.appendChild(pLocation);
+
+    const pContact = document.createElement('p');
+    pContact.innerHTML = `<strong>Контакты:</strong> ${cardData.contact}`;
+    card.appendChild(pContact);
+
+    if (cardData.photos.length > 1) {
+      const galleryDiv = document.createElement('div');
+      galleryDiv.className = 'gallery';
+      cardData.photos.slice(1).forEach(photo => {
+        const img = document.createElement('img');
+        img.src = photo;
+        galleryDiv.appendChild(img);
+      });
+      card.appendChild(galleryDiv);
+    }
+
+    const waBtn = document.createElement('a');
+    waBtn.href = 'https://wa.me/123456789';
+    waBtn.target = '_blank';
+    waBtn.textContent = 'WhatsApp';
+    waBtn.className = 'button';
+    card.appendChild(waBtn);
+
+    const tgBtn = document.createElement('a');
+    tgBtn.href = 'https://t.me/username';
+    tgBtn.target = '_blank';
+    tgBtn.textContent = 'Telegram';
+    tgBtn.className = 'button';
+    card.appendChild(tgBtn);
+
+    catalog.appendChild(card);
+  });
 }
-setInterval(updateTime, 1000);
-updateTime();
+
+// Превью фото перед загрузкой
+photosInput.addEventListener('change', () => {
+  preview.innerHTML = '';
+  Array.from(photosInput.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+// Добавление новой карточки
+document.getElementById('createCard').addEventListener('click', () => {
+  const title = document.getElementById('title').value.trim();
+  const description = document.getElementById('description').value.trim();
+  const price = document.getElementById('price').value.trim();
+  const location = document.getElementById('location').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+
+  if (!title || !description || !price || !location || !contact) {
+    alert("Пожалуйста, заполните все поля!");
+    return;
+  }
+
+  const photos = Array.from(photosInput.files).map(file => URL.createObjectURL(file));
+
+  cardsData.push({title, description, price, location, contact, photos});
+  localStorage.setItem('housingCards', JSON.stringify(cardsData));
+
+  renderCards();
+
+  document.getElementById('title').value = '';
+  document.getElementById('description').value = '';
+  document.getElementById('price').value = '';
+  document.getElementById('location').value = '';
+  document.getElementById('contact').value = '';
+  preview.innerHTML = '';
+  photosInput.value = '';
+});
+
+renderCards();
 </script>
+
 </body>
 </html>
