@@ -7,10 +7,12 @@
 <style>
 body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: white; }
 .overlay { padding: 15px; }
+/* HEADER */
 .header { display: flex; justify-content: space-between; align-items: center; border-radius: 15px; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; }
 .header-left { font-size: 14px; }
 .header-center { font-size: 22px; font-weight: bold; text-align: center; flex: 1; }
 .header-right { font-size: 14px; text-align: right; }
+/* КАРТОЧКИ */
 .cards { display: flex; flex-direction: column; gap: 20px; }
 .card { background: rgba(255,255,255,0.08); border-radius: 15px; overflow: hidden; }
 .card img { width: 100%; height: 180px; object-fit: cover; }
@@ -18,6 +20,7 @@ body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: wh
 .title { font-size: 18px; font-weight: bold; }
 .price { margin-top: 5px; color: #00ffcc; font-weight: bold; }
 .desc { font-size: 14px; margin-top: 5px; opacity: 0.9; }
+/* КНОПКИ */
 .buttons { display: flex; gap: 10px; margin-top: 10px; }
 .btn { flex: 1; padding: 10px; text-align: center; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; font-size: 14px; }
 .whatsapp { background: #25D366; }
@@ -27,6 +30,8 @@ body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: wh
 </head>
 <body>
 <div class="overlay">
+
+  <!-- HEADER -->
   <div class="header">
     <div class="header-left">🌤 <span id="weather">29°C</span></div>
     <div class="header-center">🏠 Аренда жилья</div>
@@ -36,6 +41,7 @@ body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: wh
     </div>
   </div>
 
+  <!-- КАРТОЧКИ -->
   <div class="cards">
     <!-- Квартира -->
     <div class="card">
@@ -50,9 +56,40 @@ body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: wh
         </div>
       </div>
     </div>
+
+    <!-- Вилла -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+      <div class="content">
+        <div class="title">Вилла у моря</div>
+        <div class="price">$80 / ночь</div>
+        <div class="desc">Просторная вилла с бассейном и видом на океан</div>
+        <div class="buttons">
+          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20вилла" target="_blank">WhatsApp</a>
+          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Бунгало -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+      <div class="content">
+        <div class="title">Бунгало у моря</div>
+        <div class="price">$50 / ночь</div>
+        <div class="desc">Уютное бунгало, пешком до пляжа 5 минут</div>
+        <div class="buttons">
+          <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20бунгало" target="_blank">WhatsApp</a>
+          <a class="btn telegram" href="https://t.me/trustasia" target="_blank">Telegram</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
+  <!-- Назад -->
   <a class="back" href="index.html">⬅ Назад</a>
+
 </div>
 
 <script>
