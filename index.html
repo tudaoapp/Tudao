@@ -39,6 +39,7 @@ header .left, header .right { font-size:14px; }
   text-align:center;
   padding:10px;
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor:pointer;
 }
 .section-card:hover {
   transform: scale(1.05);
@@ -51,17 +52,6 @@ header .left, header .right { font-size:14px; }
   border-radius:5px;
   margin-bottom:5px;
 }
-.button {
-  display:block;
-  padding:8px 15px;
-  margin:5px auto;
-  text-decoration:none;
-  color:#fff;
-  background:#007bff;
-  border-radius:5px;
-  text-align:center;
-}
-.button:hover { background:#0056b3; }
 </style>
 </head>
 <body>
@@ -73,34 +63,34 @@ header .left, header .right { font-size:14px; }
 </header>
 
 <div class="sections">
-  <div class="section-card">
+  <!-- Аренда жилья -->
+  <div class="section-card" onclick="location.href='housing.html'">
     <img src="https://images.unsplash.com/photo-1560185127-6a9d3f8f19c2?auto=format&fit=crop&w=220&q=80" alt="Аренда жилья">
     <h3>Аренда жилья</h3>
-    <a href="housing.html" class="button">Перейти</a>
   </div>
-  
-  <div class="section-card">
+
+  <!-- Аренда байков -->
+  <div class="section-card" onclick="location.href='bikes.html'">
     <img src="https://images.unsplash.com/photo-1600256209485-f88f0f37b5b6?auto=format&fit=crop&w=220&q=80" alt="Аренда байков">
     <h3>Аренда байков</h3>
-    <a href="bikes.html" class="button">Перейти</a>
   </div>
-  
-  <div class="section-card">
+
+  <!-- Экскурсия -->
+  <div class="section-card" onclick="location.href='excursion.html'">
     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=220&q=80" alt="Экскурсия">
     <h3>Экскурсия</h3>
-    <a href="excursion.html" class="button">Перейти</a>
   </div>
-  
-  <div class="section-card">
+
+  <!-- Услуги -->
+  <div class="section-card" onclick="location.href='services.html'">
     <img src="https://images.unsplash.com/photo-1581091215367-6d7d0652d7a5?auto=format&fit=crop&w=220&q=80" alt="Услуги">
     <h3>Услуги</h3>
-    <a href="services.html" class="button">Перейти</a>
   </div>
-  
-  <div class="section-card">
+
+  <!-- Marketplace -->
+  <div class="section-card" onclick="location.href='marketplace.html'">
     <img src="https://images.unsplash.com/photo-1598300050197-1b7c582b7e7b?auto=format&fit=crop&w=220&q=80" alt="Marketplace">
     <h3>Marketplace</h3>
-    <a href="marketplace.html" class="button">Перейти</a>
   </div>
 </div>
 
