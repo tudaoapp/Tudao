@@ -30,20 +30,19 @@
     align-items: center;
   }
 
-  /* Цвет текста черный для левой и правой части */
   .header-left, .header-right {
     font-size: 14px;
     text-align: center;
     flex: 1;
-    color: black;
+    color: black; /* черный цвет текста */
   }
 
   .header-center {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    color: black; /* Название черное */
-    border: 2px solid rgba(0,0,0,0.5); /* рамка вокруг названия */
+    color: black; /* название черное */
+    border: 2px solid rgba(0,0,0,0.5);
     padding: 5px 15px;
     border-radius: 10px;
     flex: 1;
@@ -110,16 +109,15 @@
       <div class="card-title">Аренда жилья</div>
     </div>
 
-    <!-- Аренда байков -->
+    <!-- Аренда байков с рабочей картинкой -->
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Motorcycle_icon.svg/400px-Motorcycle_icon.svg.png" alt="Аренда байков">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Motorcycle_icon.svg" alt="Аренда байков">
       <div class="card-title">Аренда байков</div>
     </div>
   </div>
 </div>
 
 <script>
-  // Время
   function updateTime() {
     const now = new Date();
     document.getElementById('time').textContent = now.toLocaleTimeString();
@@ -127,7 +125,6 @@
   setInterval(updateTime, 1000);
   updateTime();
 
-  // Прилет/вылет
   document.getElementById('flights').innerHTML = 'Прилетело: 25<br>Вылетело: 18';
 </script>
 
