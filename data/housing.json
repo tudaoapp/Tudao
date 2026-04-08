@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аренда жилья - HESS Marketplace</title>
+<style>
+body { margin:0; font-family:Arial,sans-serif; background:#0d0d0d; color:white; }
+.header { padding:15px; background:rgba(0,0,0,0.7); text-align:center; font-size:24px; font-weight:bold; }
+.housing-list { display:grid; grid-template-columns:1fr 1fr; gap:15px; padding:15px; }
+.housing-card { background:rgba(255,255,255,0.1); border-radius:15px; overflow:hidden; text-align:center; cursor:pointer; transition:0.2s; }
+.housing-card img { width:100%; height:150px; object-fit:cover; }
+.housing-card h3 { margin:10px 0 5px; }
+.housing-card p { margin:0 0 10px; }
+.housing-card a { display:inline-block; margin-bottom:10px; padding:5px 10px; background:#1e90ff; color:white; border-radius:10px; text-decoration:none; transition:0.2s; }
+.housing-card a:hover { background:#0a70d1; }
+</style>
+</head>
+<body>
+
+<div class="header">Аренда жилья</div>
+<div class="housing-list" id="housing-list"></div>
+
+<script>
+// Загрузка JSON с объявлениями
+async function loadHousing() {
+  try {
+    const response = await fetch('data/housing.json');
+    const data = await response.json();
+    const container = document.getElementById('housing-list');
+
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'housing-card';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p>Цена: ${item.price}</p>
+        <a href="${item.link}">Подробнее</a>
+      `;
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error('Ошибка загрузки housing.json:', err);
+  }
+}
+
+// Загружаем объявления при старте страницы
+loadHousing();
+</script>
+
+</body>
+</html>
