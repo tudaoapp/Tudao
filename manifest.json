@@ -1,14 +1,14 @@
 {
-  "name": "HES Marketplace",
-  "short_name": "HES",
+  "name": "HESS Marketplace",
+  "short_name": "HESS",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/854/854878.png",
-      "sizes": "192x192",
+      "src": "icon-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
