@@ -13,7 +13,6 @@
     color: #fff;
   }
 
-  /* Шапка */
   .header {
     display: flex;
     justify-content: space-between;
@@ -46,12 +45,10 @@
     margin-right: 5px;
   }
 
-  /* Контент */
   .content {
     padding: 20px;
   }
 
-  /* Карточки Marketplace */
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -87,7 +84,6 @@
     color: #fff;
   }
 
-  /* Новости */
   .news {
     padding: 20px;
     background: rgba(0,0,0,0.5);
@@ -113,7 +109,6 @@
 </head>
 <body>
 
-  <!-- Шапка -->
   <div class="header">
     <div class="header-left">
       <div id="time"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Часы"> --:--:--</div>
@@ -131,10 +126,8 @@
     </div>
   </div>
 
-  <!-- Контент -->
   <div class="content">
 
-    <!-- Карточки -->
     <div class="cards">
       <!-- Аренда жилья -->
       <div class="card">
@@ -144,19 +137,19 @@
 
       <!-- Аренда байков -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1587825140708-8c0c8b1492d1?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
+        <img src="https://images.unsplash.com/photo-1618005198919-dcf92d9e8c8a?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
         <div class="card-title">Аренда байков</div>
       </div>
 
       <!-- Услуги -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1581091215366-7e6eab9ec062?auto=format&fit=crop&w=400&q=80" alt="Услуги">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80" alt="Услуги">
         <div class="card-title">Услуги</div>
       </div>
 
       <!-- Объявления -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1571607382640-26aa18b1f5cd?auto=format&fit=crop&w=400&q=80" alt="Объявления">
+        <img src="https://images.unsplash.com/photo-1602524206292-7559a3c78c9f?auto=format&fit=crop&w=400&q=80" alt="Объявления">
         <div class="card-title">Объявления</div>
       </div>
 
@@ -167,7 +160,6 @@
       </div>
     </div>
 
-    <!-- Новости -->
     <div class="news">
       <h2>Новости Фукуока</h2>
       <div class="news-item">Новое кафе открылось в центре острова</div>
@@ -178,7 +170,6 @@
   </div>
 
 <script>
-  // Время
   function updateTime() {
     const now = new Date();
     document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
@@ -186,7 +177,6 @@
   setInterval(updateTime, 1000);
   updateTime();
 
-  // Статистика прилетов/вылетов
   function updateFlights() {
     document.getElementById('flights').innerHTML =
       'Прилетело: 25<br>Вылетело: 18';
