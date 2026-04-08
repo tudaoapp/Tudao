@@ -3,136 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HESS Marketplace</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0d0d0d">
-
+<title>Карточка аренды жилья</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
-  color: white;
-}
-
-.overlay {
-  background: rgba(0,0,0,0.65);
-  min-height: 100vh;
-  padding: 15px;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 15px;
-  padding: 12px;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.header-left { font-size: 14px; }
-.header-center { font-size: 22px; font-weight: bold; }
-.header-right { font-size: 14px; text-align: right; }
-
-/* КАРТОЧКИ */
-.cards {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.2s;
-  font-size: 16px;
-}
-
-.card:active {
-  transform: scale(0.92);
-  opacity: 0.8;
-}
-
-.icon { font-size: 38px; margin-bottom: 10px; }
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+  h2 { margin-bottom: 20px; }
+  .form-group { margin-bottom: 15px; }
+  label { display: block; font-weight: bold; margin-bottom: 5px; }
+  input[type="text"], textarea, input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; }
+  input[type="file"] { margin-top: 5px; }
+  button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+  .card { background: #fff; padding: 15px; margin-top: 20px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
+  .card img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; display: block; }
+  .gallery img { max-width: 100px; margin-right: 5px; margin-bottom: 5px; border-radius: 3px; }
 </style>
 </head>
-
 <body>
 
-<div class="overlay">
+<h2>Создать карточку аренды жилья</h2>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-left">🌤 <span id="weather">29°C</span></div>
-    <div class="header-center">HESS Marketplace</div>
-    <div class="header-right">
-      <div id="time">--:--</div>
-      <div>Phu Quoc</div>
-    </div>
-  </div>
-
-  <!-- КАРТОЧКИ -->
-  <div class="cards">
-
-    <div class="card" onclick="openPage('housing.html')">
-      <div class="icon">🏠</div>
-      <div>Аренда жилья</div>
-    </div>
-
-    <div class="card" onclick="openPage('bikes.html')">
-      <div class="icon">🏍</div>
-      <div>Аренда байков</div>
-    </div>
-
-    <div class="card" onclick="openPage('services.html')">
-      <div class="icon">🛠</div>
-      <div>Услуги</div>
-    </div>
-
-    <div class="card" onclick="openPage('excursions.html')">
-      <div class="icon">🌴</div>
-      <div>Экскурсии</div>
-    </div>
-
-    <div class="card" onclick="openPage('ads.html')">
-      <div class="icon">📋</div>
-      <div>Объявления</div>
-    </div>
-
-    <div class="card" onclick="openPage('marketplace.html')">
-      <div class="icon">👟</div>
-      <div>Marketplace</div>
-    </div>
-
-  </div>
-
+<div class="form-group">
+  <label for="title">Заголовок</label>
+  <input type="text" id="title" placeholder="Например: Уютный дом у моря, 4 комнаты">
 </div>
 
+<div class="form-group">
+  <label for="photos">Фотографии</label>
+  <input type="file" id="photos" multiple accept="image/*">
+  <div class="gallery" id="preview"></div>
+</div>
+
+<div class="form-group">
+  <label for="description">Описание</label>
+  <textarea id="description" rows="5" placeholder="Подробное описание жилья"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="price">Цена</label>
+  <input type="text" id="price" placeholder="Например: 20 000 000 VND / месяц">
+</div>
+
+<div class="form-group">
+  <label for="location">Локация</label>
+  <input type="text" id="location" placeholder="Город, район">
+</div>
+
+<div class="form-group">
+  <label for="contact">Контакты</label>
+  <input type="text" id="contact" placeholder="Телефон или ссылка на профиль">
+</div>
+
+<button id="createCard">Создать карточку</button>
+
+<div id="cardContainer"></div>
+
 <script>
-// ВРЕМЯ
-function updateTime() {
-  const now = new Date();
-  document.getElementById('time').textContent =
-    now.toLocaleTimeString('ru-RU');
-}
-setInterval(updateTime, 1000);
-updateTime();
+const photosInput = document.getElementById('photos');
+const preview = document.getElementById('preview');
 
-// Переходы по страницам
-function openPage(path) {
-  window.location.href = path;
-}
+// Превью загруженных фото
+photosInput.addEventListener('change', () => {
+  preview.innerHTML = '';
+  Array.from(photosInput.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
 
-// SERVICE WORKER
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
-}
+// Создание карточки
+document.getElementById('createCard').addEventListener('click', () => {
+  const title = document.getElementById('title').value.trim();
+  const description = document.getElementById('description').value.trim();
+  const price = document.getElementById('price').value.trim();
+  const location = document.getElementById('location').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+
+  if (!title || !description || !price || !location || !contact) {
+    alert("Пожалуйста, заполните все поля!");
+    return;
+  }
+
+  const cardContainer = document.getElementById('cardContainer');
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  // Основная фотография
+  if (photosInput.files[0]) {
+    const mainImg = document.createElement('img');
+    mainImg.src = URL.createObjectURL(photosInput.files[0]);
+    card.appendChild(mainImg);
+  }
+
+  const h3 = document.createElement('h3');
+  h3.textContent = title;
+  card.appendChild(h3);
+
+  const desc = document.createElement('p');
+  desc.textContent = description;
+  card.appendChild(desc);
+
+  const pPrice = document.createElement('p');
+  pPrice.innerHTML = `<strong>Цена:</strong> ${price}`;
+  card.appendChild(pPrice);
+
+  const pLocation = document.createElement('p');
+  pLocation.innerHTML = `<strong>Локация:</strong> ${location}`;
+  card.appendChild(pLocation);
+
+  const pContact = document.createElement('p');
+  pContact.innerHTML = `<strong>Контакты:</strong> ${contact}`;
+  card.appendChild(pContact);
+
+  // Галерея дополнительных фото
+  if (photosInput.files.length > 1) {
+    const galleryDiv = document.createElement('div');
+    galleryDiv.className = 'gallery';
+    Array.from(photosInput.files).forEach((file, index) => {
+      if (index === 0) return; // пропустить основную фото
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      galleryDiv.appendChild(img);
+    });
+    card.appendChild(galleryDiv);
+  }
+
+  cardContainer.appendChild(card);
+
+  // Очистка формы
+  document.getElementById('title').value = '';
+  document.getElementById('description').value = '';
+  document.getElementById('price').value = '';
+  document.getElementById('location').value = '';
+  document.getElementById('contact').value = '';
+  preview.innerHTML = '';
+  photosInput.value = '';
+});
 </script>
 
 </body>
