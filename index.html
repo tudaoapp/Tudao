@@ -12,7 +12,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
-  background-size: cover;
   color: white;
 }
 
@@ -34,7 +33,7 @@ body {
 }
 
 .header-left { font-size: 14px; }
-.header-center { font-size: 22px; font-weight: bold; text-align: center; flex: 1; }
+.header-center { font-size: 22px; font-weight: bold; }
 .header-right { font-size: 14px; text-align: right; }
 
 /* КАРТОЧКИ */
@@ -60,14 +59,12 @@ body {
   opacity: 0.8;
 }
 
-.icon {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
+.icon { font-size: 38px; margin-bottom: 10px; }
 </style>
 </head>
 
 <body>
+
 <div class="overlay">
 
   <!-- HEADER -->
@@ -82,43 +79,34 @@ body {
 
   <!-- КАРТОЧКИ -->
   <div class="cards">
-
     <div class="card" onclick="openPage('housing.html')">
-      <div class="icon">🏠</div>
-      <div>Аренда жилья</div>
+      <div class="icon">🏠</div>Аренда жилья
     </div>
 
     <div class="card" onclick="openPage('bikes.html')">
-      <div class="icon">🏍</div>
-      <div>Аренда байков</div>
+      <div class="icon">🏍</div>Аренда байков
     </div>
 
     <div class="card" onclick="openPage('services.html')">
-      <div class="icon">🛠</div>
-      <div>Услуги</div>
+      <div class="icon">🛠</div>Услуги
     </div>
 
     <div class="card" onclick="openPage('excursions.html')">
-      <div class="icon">🌴</div>
-      <div>Экскурсии</div>
+      <div class="icon">🌴</div>Экскурсии
     </div>
 
     <div class="card" onclick="openPage('ads.html')">
-      <div class="icon">📋</div>
-      <div>Объявления</div>
+      <div class="icon">📋</div>Объявления
     </div>
 
     <div class="card" onclick="openPage('marketplace.html')">
-      <div class="icon">👟</div>
-      <div>Marketplace</div>
+      <div class="icon">👟</div>Marketplace
     </div>
-
   </div>
 
 </div>
 
 <script>
-// ВРЕМЯ
 function updateTime() {
   const now = new Date();
   document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
@@ -126,15 +114,14 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// Переход по страницам
-function openPage(path) {
-  window.location.href = path;
+function openPage(file) {
+  window.location.href = file;
 }
 
-// SERVICE WORKER
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
 </script>
+
 </body>
 </html>
