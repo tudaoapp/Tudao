@@ -1,188 +1,218 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HESS Marketplace</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HESS Marketplace</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+  }
 
-    /* Рамка по всему сайту */
-    .site-border {
-      border: 4px solid #fff;
-      padding: 10px;
-      box-sizing: border-box;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  /* Внешняя рамка сайта */
+  .site-border {
+    border: 4px solid #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-    /* Шапка сайта */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #111;
-      padding: 15px 20px;
-      border-bottom: 2px solid #fff;
-    }
+  /* Шапка */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 15px 20px;
+    border-bottom: 2px solid #fff;
+    position: relative;
+  }
 
-    .header-left, .header-center, .header-right {
-      display: flex;
-      align-items: center;
-    }
+  .header-left, .header-center, .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .header-left {
-      font-size: 14px;
-      color: #ccc;
-    }
+  .header-left {
+    font-size: 14px;
+    color: #ccc;
+    text-align: left;
+  }
 
-    .header-center {
-      font-size: 28px;
-      font-weight: bold;
-      color: #fff;
-      justify-content: center;
-      flex: 1;
-    }
+  /* Центр с красной рамкой и внутренней обводкой */
+  .header-center {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 5px 20px;
+    border: 2px solid red;
+    box-shadow: 0 0 0 3px #fff inset;
+    border-radius: 8px;
+  }
 
-    .header-right {
-      font-size: 14px;
-      color: #ccc;
-      text-align: right;
-    }
+  .header-right {
+    font-size: 14px;
+    color: #ccc;
+    text-align: right;
+  }
 
-    /* Контент */
-    .content {
-      flex: 1;
-      padding: 20px;
-    }
+  /* Контент с внутренней рамкой */
+  .content {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
 
-    /* Карточки Marketplace */
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
+  /* Карточки Marketplace */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
 
-    .card {
-      background: #111;
-      width: 200px;
-      margin: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s, background 0.3s;
-      text-align: center;
-    }
+  .card {
+    background: #111;
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+  }
 
-    .card:hover {
-      transform: scale(1.05);
-      background: #222;
-    }
+  .card:hover {
+    transform: scale(1.05);
+    background: #222;
+  }
 
-    .card img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      display: block;
-    }
+  .card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+  }
 
-    .card-title {
-      padding: 10px;
-      font-weight: bold;
-      color: white;
-    }
+  .card-title {
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+  }
 
-    /* Новости */
-    .news {
-      margin: 20px;
-      padding: 20px;
-      background: #111;
-      border-radius: 10px;
-    }
+  /* Новости */
+  .news {
+    margin: 20px 0;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+  }
 
-    .news h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #555;
-      padding-bottom: 5px;
-    }
+  .news h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+  }
 
-    .news-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #333;
-    }
+  .news-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
 
-    .news-item:last-child {
-      border-bottom: none;
-    }
-
-  </style>
+  .news-item:last-child {
+    border-bottom: none;
+  }
+</style>
 </head>
 <body>
-  <div class="site-border">
+<div class="site-border">
 
-    <!-- Шапка -->
-    <div class="header">
-      <div class="header-left" id="time">Время: --:--:--</div>
-      <div class="header-center">HESS Marketplace</div>
-      <div class="header-right" id="weather">Погода: 28°C, влажность 60%</div>
+  <!-- Шапка -->
+  <div class="header">
+    <div class="header-left">
+      <div id="time">Время: --:--:--</div>
+      <div id="flights">
+        Прилетело: --<br>
+        Вылетело: --
+      </div>
     </div>
 
-    <!-- Контент -->
-    <div class="content">
-      <!-- Карточки -->
-      <div class="cards">
-        <div class="card">
-          <img src="images/villa.jpg" alt="Аренда жилья">
-          <div class="card-title">Аренда жилья</div>
-        </div>
-        <div class="card">
-          <img src="images/bike.jpg" alt="Аренда байков">
-          <div class="card-title">Аренда байков</div>
-        </div>
-        <div class="card">
-          <img src="images/services.jpg" alt="Услуги">
-          <div class="card-title">Услуги</div>
-        </div>
-        <div class="card">
-          <img src="images/ads.jpg" alt="Объявления">
-          <div class="card-title">Объявления</div>
-        </div>
-        <div class="card">
-          <img src="images/sneakers.jpg" alt="Маркетплейс">
-          <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
-        </div>
-      </div>
+    <div class="header-center">HESS Marketplace</div>
 
-      <!-- Новости -->
-      <div class="news">
-        <h2>Новости Фукуока</h2>
-        <div class="news-item">Новое кафе открылось в центре острова</div>
-        <div class="news-item">Новая услуга по аренде электросамокатов</div>
-        <div class="news-item">Скидки на жильё в районе Онланг</div>
-      </div>
-
+    <div class="header-right" id="weather">
+      Погода: 28°C, влажность 60%
     </div>
   </div>
 
-  <script>
-    // Скрипт для времени
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
+  <!-- Контент с внутренней рамкой -->
+  <div class="content">
 
-    // Для начала погода пока статично, потом можно API добавить
-    // document.getElementById('weather').textContent = "Погода: 28°C, влажность 60%";
-  </script>
+    <!-- Карточки -->
+    <div class="cards">
+      <div class="card">
+        <img src="images/villa.jpg" alt="Аренда жилья">
+        <div class="card-title">Аренда жилья</div>
+      </div>
+      <div class="card">
+        <img src="images/bike.jpg" alt="Аренда байков">
+        <div class="card-title">Аренда байков</div>
+      </div>
+      <div class="card">
+        <img src="images/services.jpg" alt="Услуги">
+        <div class="card-title">Услуги</div>
+      </div>
+      <div class="card">
+        <img src="images/ads.jpg" alt="Объявления">
+        <div class="card-title">Объявления</div>
+      </div>
+      <div class="card">
+        <img src="images/sneakers.jpg" alt="Маркетплейс">
+        <div class="card-title">Маркетплейс (кроссовки / одежда)</div>
+      </div>
+    </div>
+
+    <!-- Новости -->
+    <div class="news">
+      <h2>Новости Фукуока</h2>
+      <div class="news-item">Новое кафе открылось в центре острова</div>
+      <div class="news-item">Новая услуга по аренде электросамокатов</div>
+      <div class="news-item">Скидки на жильё в районе Онланг</div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Время
+  function updateTime() {
+    const now = new Date();
+    document.getElementById('time').textContent = 'Время: ' + now.toLocaleTimeString();
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+
+  // Статистика прилетов/вылетов
+  function updateFlights() {
+    document.getElementById('flights').innerHTML =
+      'Прилетело: 25<br>Вылетело: 18';
+  }
+  updateFlights();
+
+  // Погода (пока статично)
+  // document.getElementById('weather').textContent = "Погода: 28°C, влажность 60%";
+</script>
 </body>
 </html>
