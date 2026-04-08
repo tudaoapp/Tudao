@@ -13,11 +13,21 @@
     color: #fff;
   }
 
+  /* Восстанавливаем рамку для шапки */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    border: 2px solid rgba(0,0,0,0.5); /* рамка вокруг шапки */
+    border-radius: 10px;
+    background: rgba(255,255,255,0.8);
+  }
+
+  .header-left, .header-center, .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .header-left, .header-right {
@@ -30,8 +40,12 @@
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    color: gold; /* Золотистый цвет */
+    color: black; /* цвет названия черный */
+    border: 2px solid rgba(0,0,0,0.5); /* рамка вокруг названия */
+    padding: 5px 15px;
+    border-radius: 10px;
     flex: 1;
+    background: rgba(255,255,255,0.9);
   }
 
   .content {
