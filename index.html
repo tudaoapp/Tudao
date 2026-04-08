@@ -12,16 +12,6 @@
     color: #fff;
   }
 
-  /* Внешняя рамка сайта */
-  .site-border {
-    border: 4px solid #fff;
-    padding: 10px;
-    box-sizing: border-box;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
   /* Шапка */
   .header {
     display: flex;
@@ -29,8 +19,6 @@
     align-items: center;
     background: #111;
     padding: 15px 20px;
-    border-bottom: 2px solid #fff;
-    position: relative;
   }
 
   .header-left, .header-center, .header-right {
@@ -45,7 +33,6 @@
     text-align: left;
   }
 
-  /* Центр с красной рамкой и внутренней обводкой */
   .header-center {
     font-size: 28px;
     font-weight: bold;
@@ -53,10 +40,6 @@
     flex: 1;
     justify-content: center;
     text-align: center;
-    padding: 5px 20px;
-    border: 2px solid red;
-    box-shadow: 0 0 0 3px #fff inset;
-    border-radius: 8px;
   }
 
   .header-right {
@@ -65,13 +48,10 @@
     text-align: right;
   }
 
-  /* Контент с внутренней рамкой */
+  /* Контент */
   .content {
     flex: 1;
     padding: 20px;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    margin-top: 20px;
   }
 
   /* Карточки Marketplace */
@@ -137,7 +117,6 @@
 </style>
 </head>
 <body>
-<div class="site-border">
 
   <!-- Шапка -->
   <div class="header">
@@ -156,7 +135,7 @@
     </div>
   </div>
 
-  <!-- Контент с внутренней рамкой -->
+  <!-- Контент -->
   <div class="content">
 
     <!-- Карточки -->
@@ -193,8 +172,6 @@
 
   </div>
 
-</div>
-
 <script>
   // Время
   function updateTime() {
@@ -210,9 +187,7 @@
       'Прилетело: 25<br>Вылетело: 18';
   }
   updateFlights();
-
-  // Погода (пока статично)
-  // document.getElementById('weather').textContent = "Погода: 28°C, влажность 60%";
 </script>
+
 </body>
 </html>
