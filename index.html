@@ -3,194 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аренда жилья</title>
+<title>HESS Marketplace</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d0d0d">
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0d0d0d;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
+  background-size: cover;
   color: white;
 }
 
 .overlay {
+  background: rgba(0,0,0,0.65);
+  min-height: 100vh;
   padding: 15px;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-h2 {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 5px;
-}
-
-/* Карточки */
-.cards {
+/* HEADER */
+.header {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 12px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.header-left { font-size: 14px; }
+.header-center { font-size: 22px; font-weight: bold; text-align: center; flex: 1; }
+.header-right { font-size: 14px; text-align: right; }
+
+/* КАРТОЧКИ */
+.cards {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .card {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   border-radius: 15px;
-  overflow: hidden;
-}
-
-/* Фото */
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-/* Контент */
-.content {
-  padding: 15px;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.price {
-  margin-top: 5px;
-  color: #00ffcc;
-  font-weight: bold;
-}
-
-.desc {
-  font-size: 14px;
-  margin-top: 5px;
-  opacity: 0.9;
-}
-
-/* Кнопки */
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.btn {
-  flex: 1;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
 }
 
-.whatsapp {
-  background: #25D366;
-  margin-right: 5px;
+.card:active {
+  transform: scale(0.92);
+  opacity: 0.8;
 }
 
-.telegram {
-  background: #0088cc;
-  margin-left: 5px;
-}
-
-/* Назад */
-.back {
-  display: block;
-  margin-top: 25px;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.2);
-  text-decoration: none;
-  color: white;
+.icon {
+  font-size: 38px;
+  margin-bottom: 10px;
 }
 </style>
 </head>
 
 <body>
-
 <div class="overlay">
 
-<h1>🏠 Аренда жилья</h1>
-
-<!-- Квартиры -->
-<h2>Квартиры</h2>
-<div class="cards">
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
-    <div class="content">
-      <div class="title">Студия у моря</div>
-      <div class="price">$25 / ночь</div>
-      <div class="desc">Удобное расположение, интернет, кондиционер</div>
-      <div class="buttons">
-        <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20квартира%20у%20моря">WhatsApp</a>
-        <a class="btn telegram" href="https://t.me/trustasia">Telegram</a>
-      </div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">🌤 <span id="weather">29°C</span></div>
+    <div class="header-center">HESS Marketplace</div>
+    <div class="header-right">
+      <div id="time">--:--</div>
+      <div>Phu Quoc</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1598928506311-152a79e56d26">
-    <div class="content">
-      <div class="title">Двухкомнатная квартира</div>
-      <div class="price">$40 / ночь</div>
-      <div class="desc">Семейный вариант, рядом магазины и кафе</div>
-      <div class="buttons">
-        <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20двухкомнатная%20квартира">WhatsApp</a>
-        <a class="btn telegram" href="https://t.me/trustasia">Telegram</a>
-      </div>
+  <!-- КАРТОЧКИ -->
+  <div class="cards">
+
+    <div class="card" onclick="openPage('housing.html')">
+      <div class="icon">🏠</div>
+      <div>Аренда жилья</div>
     </div>
-  </div>
 
-</div>
-
-<!-- Виллы -->
-<h2>Виллы</h2>
-<div class="cards">
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <div class="content">
-      <div class="title">Вилла с бассейном</div>
-      <div class="price">$120 / ночь</div>
-      <div class="desc">Просторная вилла, бассейн, кухня, парковка</div>
-      <div class="buttons">
-        <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20вилла%20с%20бассейном">WhatsApp</a>
-        <a class="btn telegram" href="https://t.me/trustasia">Telegram</a>
-      </div>
+    <div class="card" onclick="openPage('bikes.html')">
+      <div class="icon">🏍</div>
+      <div>Аренда байков</div>
     </div>
+
+    <div class="card" onclick="openPage('services.html')">
+      <div class="icon">🛠</div>
+      <div>Услуги</div>
+    </div>
+
+    <div class="card" onclick="openPage('excursions.html')">
+      <div class="icon">🌴</div>
+      <div>Экскурсии</div>
+    </div>
+
+    <div class="card" onclick="openPage('ads.html')">
+      <div class="icon">📋</div>
+      <div>Объявления</div>
+    </div>
+
+    <div class="card" onclick="openPage('marketplace.html')">
+      <div class="icon">👟</div>
+      <div>Marketplace</div>
+    </div>
+
   </div>
 
 </div>
 
-<!-- Бунгало -->
-<h2>Бунгало у моря</h2>
-<div class="cards">
+<script>
+// ВРЕМЯ
+function updateTime() {
+  const now = new Date();
+  document.getElementById('time').textContent = now.toLocaleTimeString('ru-RU');
+}
+setInterval(updateTime, 1000);
+updateTime();
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-    <div class="content">
-      <div class="title">Бунгало на пляже</div>
-      <div class="price">$80 / ночь</div>
-      <div class="desc">Прямой выход к морю, уютная терраса</div>
-      <div class="buttons">
-        <a class="btn whatsapp" href="https://wa.me/84365331907?text=Здравствуйте,%20интересует%20бунгало%20на%20пляже">WhatsApp</a>
-        <a class="btn telegram" href="https://t.me/trustasia">Telegram</a>
-      </div>
-    </div>
-  </div>
+// Переход по страницам
+function openPage(path) {
+  window.location.href = path;
+}
 
-</div>
-
-<a class="back" onclick="history.back()">⬅ Назад</a>
-
-</div>
+// SERVICE WORKER
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
 </body>
 </html>
