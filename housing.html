@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аренда жилья</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
+  background-size: cover;
+  color: white;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.65);
+  min-height: 100vh;
+  padding: 15px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 12px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.header-left { font-size: 14px; }
+.header-center { font-size: 22px; font-weight: bold; }
+.header-right { font-size: 14px; text-align: right; }
+
+/* КАРТОЧКИ */
+.cards {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.card:active {
+  transform: scale(0.92);
+  opacity: 0.8;
+}
+
+.icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">🌤 <span id="weather">29°C</span></div>
+    <div class="header-center">Аренда жилья</div>
+    <div class="header-right">
+      <div id="time">--:--</div>
+      <div>Phu Quoc</div>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКИ -->
+  <div class="cards">
+
+    <!-- Telegram -->
+    <div class="card" onclick="window.open('https://t.me/trustasia')">
+      <div class="icon">📱</div>
+      Telegram
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="card" onclick="window.open('https://wa.me/840365331907')">
+      <div class="icon">📱</div>
+      WhatsApp
+    </div>
+
+    <!-- Пример карточек аренды -->
+    <div class="card">
+      <div class="icon">🏠</div>
+      Вилла на Фукуоке
+    </div>
+
+    <div class="card">
+      <div class="icon">🏢</div>
+      Квартира у моря
+    </div>
+
+    <div class="card">
+      <div class="icon">🏡</div>
+      Дом с бассейном
+    </div>
+
+    <div class="card">
+      <div class="icon">🌴</div>
+      Бунгало на пляже
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// ВРЕМЯ
+function updateTime() {
+  const now = new Date();
+  document.getElementById('time').textContent =
+    now.toLocaleTimeString('ru-RU');
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+
+</body>
+</html>
