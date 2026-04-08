@@ -3,146 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HESS Marketplace</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d0d0d">
+
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+  color: white;
+}
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border: 2px solid rgba(0,0,0,0.5);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.8);
-  }
+/* затемнение */
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+  padding: 15px;
+}
 
-  .header-left, .header-center, .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+}
 
-  .header-left, .header-right {
-    font-size: 14px;
-    text-align: center;
-    flex: 1;
-    color: black;
-  }
+/* левая часть (погода) */
+.header-left {
+  font-size: 14px;
+}
 
-  .header-center {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    color: black;
-    border: 2px solid rgba(0,0,0,0.5);
-    padding: 5px 15px;
-    border-radius: 10px;
-    flex: 1;
-    background: rgba(255,255,255,0.9);
-  }
+/* центр */
+.header-center {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
 
-  .content {
-    padding: 20px;
-  }
+/* правая часть (время) */
+.header-right {
+  font-size: 14px;
+  text-align: right;
+}
 
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+/* КАРТОЧКИ */
+.cards {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
 
-  .card {
-    background: rgba(0,0,0,0.5);
-    width: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .card:hover {
-    transform: scale(1.05);
-  }
+.card:active {
+  transform: scale(0.95);
+}
 
-  .card img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    display: block;
-  }
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
 
-  .card-title {
-    padding: 10px;
-    font-weight: bold;
-  }
+.card-title {
+  padding: 10px;
+  font-weight: bold;
+}
 </style>
 </head>
+
 <body>
 
-<div class="header">
-  <div class="header-left">
-    <div id="time">--:--:--</div>
-    <div id="flights">Прилетело: --<br>Вылетело: --</div>
+<div class="overlay">
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <!-- Погода -->
+    <div class="header-left">
+      🌤 <span id="weather">28°C</span>
+    </div>
+
+    <!-- Название -->
+    <div class="header-center">
+      HESS Marketplace
+    </div>
+
+    <!-- Время -->
+    <div class="header-right">
+      <div id="time">--:--</div>
+      <div>Phu Quoc</div>
+    </div>
+
   </div>
 
-  <div class="header-center">HESS Marketplace</div>
-
-  <div class="header-right" id="weather">
-    Погода: 28°C, влажность 60%
-  </div>
-</div>
-
-<div class="content">
+  <!-- КАРТОЧКИ -->
   <div class="cards">
-    <!-- Аренда жилья -->
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Аренда жилья">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
       <div class="card-title">Аренда жилья</div>
     </div>
 
-    <!-- Аренда байков -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1558981403-c8d6f0cf0c7f?auto=format&fit=crop&w=400&q=80" alt="Аренда байков">
+      <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6">
       <div class="card-title">Аренда байков</div>
     </div>
 
-    <!-- Услуги -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1591012911205-daa51c4e1a37?auto=format&fit=crop&w=400&q=80" alt="Услуги">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
       <div class="card-title">Услуги</div>
     </div>
 
-    <!-- Объявления -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1581090700227-ff380df03b0d?auto=format&fit=crop&w=400&q=80" alt="Объявления">
+      <img src="https://images.unsplash.com/photo-1581090700227-ff380df03b0d">
       <div class="card-title">Объявления</div>
     </div>
 
-    <!-- Marketplace -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1618354692650-3e3d0677a490?auto=format&fit=crop&w=400&q=80" alt="Marketplace">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
       <div class="card-title">Marketplace</div>
     </div>
+
   </div>
+
 </div>
 
 <script>
-  function updateTime() {
-    const now = new Date();
-    document.getElementById('time').textContent = now.toLocaleTimeString();
-  }
-  setInterval(updateTime, 1000);
-  updateTime();
+// ВРЕМЯ
+function updateTime() {
+  const now = new Date();
+  const time = now.toLocaleTimeString('ru-RU');
+  document.getElementById('time').textContent = time;
+}
+setInterval(updateTime, 1000);
+updateTime();
 
-  document.getElementById('flights').innerHTML = 'Прилетело: 25<br>Вылетело: 18';
+// ПРИМЕР ПОГОДЫ (потом подключим API)
+document.getElementById('weather').textContent = "29°C";
+</script>
+
+<!-- SERVICE WORKER -->
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 
 </body>
