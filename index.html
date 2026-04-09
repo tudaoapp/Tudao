@@ -15,7 +15,7 @@
       height: 100vh;
     }
 
-    /* затемнение фона */
+    /* затемнение + blur */
     body::before {
       content: "";
       position: fixed;
@@ -39,16 +39,21 @@
 
     .top-controls {
       display: flex;
-      gap: 10px;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
+    /* универсальные стеклянные кнопки */
     .pill {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
       border-radius: 20px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       backdrop-filter: blur(10px);
-      font-size: 14px;
+      font-size: 12px;
       color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      white-space: nowrap;
     }
 
     main {
@@ -86,29 +91,6 @@
       margin-bottom: 8px;
     }
 
-    /* нижний блок */
-    .bottom {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .info-card {
-      background: rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 15px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: white;
-      font-size: 14px;
-    }
-
-    .big {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-
   </style>
 </head>
 
@@ -118,6 +100,8 @@
   <div class="logo">Hess Marketplace</div>
 
   <div class="top-controls">
+    <div class="pill">🌤 +24°</div>
+    <div class="pill">$ 26 000</div>
     <div class="pill">Нячанг</div>
     <div class="pill">☰</div>
   </div>
@@ -147,63 +131,4 @@
       Еда
     </a>
 
-    <a href="#" class="card">
-      <div class="icon">📄</div>
-      Визаран
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">⭐</div>
-      Афиша
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">💱</div>
-      Обменник
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">📍</div>
-      Локации
-    </a>
-
-    <a href="./marketplace/index.html" class="card">
-      <div class="icon">🛒</div>
-      Маркетплейс
-    </a>
-
-    <a href="./excursions/index.html" class="card">
-      <div class="icon">🎫</div>
-      Экскурсии
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">🍸</div>
-      Бары
-    </a>
-
-    <a href="./bikes/index.html" class="card">
-      <div class="icon">🛵</div>
-      Аренда
-    </a>
-
-  </div>
-
-  <div class="bottom">
-
-    <div class="info-card">
-      Курс валют<br>
-      <div class="big">1$ = 26 000 VND</div>
-    </div>
-
-    <div class="info-card">
-      Погода<br>
-      <div class="big">+24°</div>
-    </div>
-
-  </div>
-
-</main>
-
-</body>
-</html>
+    <a href
