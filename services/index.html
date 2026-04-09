@@ -13,12 +13,10 @@ body {
   color: #fff;
 }
 
-/* HEADER */
 .header {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .back {
@@ -27,43 +25,61 @@ body {
   margin-right: 15px;
 }
 
-/* LIST */
 .container {
   padding: 15px;
 }
 
-/* CARD */
 .card {
   background: #1a1a1a;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
-  transition: 0.2s;
-}
-
-.card:active {
-  transform: scale(0.98);
 }
 
 .card img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .title {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin: 10px 0 5px;
 }
 
 .desc {
   font-size: 14px;
   opacity: 0.7;
-  margin-bottom: 10px;
 }
 
 .price {
+  margin-top: 5px;
   color: #f5d7b2;
+}
+
+/* КНОПКИ */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.telegram {
+  background: #0088cc;
 }
 </style>
 
@@ -79,30 +95,50 @@ body {
 
   <div class="card">
     <img src="https://via.placeholder.com/400x250">
-    <div class="title">Уборка квартиры</div>
-    <div class="desc">Генеральная уборка, быстро и качественно</div>
-    <div class="price">$20</div>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/400x250">
     <div class="title">Ремонт техники</div>
-    <div class="desc">Телефоны, ноутбуки, бытовая техника</div>
-    <div class="price">от $15</div>
+    <div class="desc">Быстро и качественно</div>
+    <div class="price">$20</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
   <div class="card">
     <img src="https://via.placeholder.com/400x250">
-    <div class="title">Трансфер</div>
-    <div class="desc">Аэропорт — отель / отель — аэропорт</div>
-    <div class="price">$10</div>
+    <div class="title">Уборка квартиры</div>
+    <div class="desc">Чистота и порядок</div>
+    <div class="price">$15</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
   <div class="card">
     <img src="https://via.placeholder.com/400x250">
-    <div class="title">Аренда авто</div>
-    <div class="desc">Комфортные автомобили на любой срок</div>
-    <div class="price">$30 / день</div>
+    <div class="title">Няня</div>
+    <div class="desc">Опыт работы с детьми</div>
+    <div class="price">$10/час</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x250">
+    <div class="title">Переводчик</div>
+    <div class="desc">Русский ↔ Вьетнамский</div>
+    <div class="price">$25</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
 </div>
