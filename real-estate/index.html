@@ -6,10 +6,6 @@
 <title>Аренда недвижимости</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: sans-serif;
@@ -17,61 +13,74 @@ body {
   color: #fff;
 }
 
-/* HEADER */
 .header {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .back {
   color: #f5d7b2;
   text-decoration: none;
   margin-right: 15px;
-  font-size: 14px;
 }
 
-/* CONTAINER */
 .container {
   padding: 15px;
 }
 
-/* CARD */
 .card {
   background: #1a1a1a;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
-  transition: transform 0.2s ease;
-}
-
-.card:active {
-  transform: scale(0.98);
 }
 
 .card img {
   width: 100%;
-  height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
-/* TEXT */
 .title {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 .desc {
   font-size: 14px;
   opacity: 0.7;
-  margin-bottom: 10px;
 }
 
 .price {
+  margin-top: 5px;
   color: #f5d7b2;
-  font-weight: bold;
+}
+
+/* КНОПКИ */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.telegram {
+  background: #0088cc;
 }
 </style>
 
@@ -86,31 +95,51 @@ body {
 <div class="container">
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250" alt="">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
     <div class="title">Студия у моря</div>
     <div class="desc">300м до пляжа, новый ремонт</div>
     <div class="price">$400 / месяц</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250" alt="">
+    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
     <div class="title">1-bedroom квартира</div>
     <div class="desc">центр города, балкон</div>
     <div class="price">$550 / месяц</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250" alt="">
+    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
     <div class="title">Дом с бассейном</div>
     <div class="desc">2 этажа, тихий район</div>
     <div class="price">$900 / месяц</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250" alt="">
+    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
     <div class="title">Бунгало</div>
     <div class="desc">зелёная территория, рядом кафе</div>
     <div class="price">$300 / месяц</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
   </div>
 
 </div>
