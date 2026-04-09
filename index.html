@@ -1,181 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hess Marketplace</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аренда недвижимости</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-      color: #f5d7b2;
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url('../bg.jpg') center/cover no-repeat;
+  color: #fff;
+}
 
-      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
-      height: 100vh;
-    }
+.overlay {
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  padding: 20px;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-      z-index: -1;
-    }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
+.back {
+  color: #fff;
+  text-decoration: none;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: 600;
-    }
+.cards {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .top-controls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.card {
+  background: rgba(255,255,255,0.08);
+  padding: 15px;
+  border-radius: 20px;
+}
 
-    .pill {
-      background: rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 7px 12px;
-      backdrop-filter: blur(10px);
-      font-size: 12px;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
 
-    main {
-      padding: 15px;
-    }
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .card {
-      height: 110px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: #f5d7b2;
-      font-size: 14px;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: 0.2s;
-    }
-
-    .card:active {
-      transform: scale(0.95);
-    }
-
-    .icon {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-  </style>
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+</style>
 </head>
 
 <body>
+<div class="overlay">
 
-<header>
-  <div class="logo">Hess Marketplace</div>
+<div class="header">
+  <a href="../index.html" class="back">← Назад</a>
+  <div>Аренда недвижимости</div>
+  <div>🌤 +24° 💲 1$=26000</div>
+</div>
 
-  <div class="top-controls">
-    <div class="pill">🌤 +24°</div>
-    <div class="pill">$ 26 000</div>
-    <div class="pill">Фукуок</div>
-    <div class="pill">☰</div>
+<div class="cards">
+
+<div class="card">
+  <img src="https://via.placeholder.com/400x200">
+  <h3>Квартира у моря</h3>
+  <p>2 спальни, 300м до пляжа</p>
+  <b>$500 / месяц</b>
+  <div class="buttons">
+    <a class="btn" href="https://wa.me/79999999999">WhatsApp</a>
+    <a class="btn" href="https://t.me/username">Telegram</a>
   </div>
-</header>
+</div>
 
-<main>
-
-  <div class="grid">
-
-    <!-- 1 -->
-    <a href="./services/index.html" class="card">
-      <div class="icon">🛠</div>
-      Услуги
-    </a>
-
-    <a href="./real-estate/index.html" class="card">
-      <div class="icon">🏠</div>
-      Аренда недвижимости 
-    </a>
-
-    <!-- 2 -->
-    <a href="#" class="card">
-      <div class="icon">💼</div>
-      Работа
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">🍜</div>
-      Еда
-    </a>
-
-    <!-- 3 -->
-    <a href="#" class="card">
-      <div class="icon">📄</div>
-      Визы
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">⭐</div>
-      Афиша
-    </a>
-
-    <!-- 4 -->
-    <a href="#" class="card">
-      <div class="icon">💱</div>
-      Обмен валют
-    </a>
-
-    <a href="#" class="card">
-      <div class="icon">📍</div>
-      Локации
-    </a>
-
-    <!-- 5 -->
-    <a href="./marketplace/index.html" class="card">
-      <div class="icon">🛒</div>
-      Маркетплейс
-    </a>
-
-    <a href="./excursions/index.html" class="card">
-      <div class="icon">🎫</div>
-      Экскурсии
-    </a>
-
-    <!-- 6 -->
-    <a href="#" class="card">
-      <div class="icon">🍸</div>
-      Бары
-    </a>
-
-    <a href="./bikes/index.html" class="card">
-      <div class="icon">🛵</div>
-      Аренда байков
-    </a>
-
+<div class="card">
+  <img src="https://via.placeholder.com/400x200">
+  <h3>Вилла с бассейном</h3>
+  <p>Большая территория</p>
+  <b>$1200 / месяц</b>
+  <div class="buttons">
+    <a class="btn" href="#">WhatsApp</a>
+    <a class="btn" href="#">Telegram</a>
   </div>
+</div>
 
-</main>
+</div>
 
+</div>
 </body>
 </html>
