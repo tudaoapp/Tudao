@@ -6,6 +6,10 @@
 <title>Аренда недвижимости</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -25,9 +29,10 @@ body {
   color: #f5d7b2;
   text-decoration: none;
   margin-right: 15px;
+  font-size: 14px;
 }
 
-/* LIST */
+/* CONTAINER */
 .container {
   padding: 15px;
 }
@@ -38,7 +43,7 @@ body {
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
-  transition: 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .card:active {
@@ -47,10 +52,12 @@ body {
 
 .card img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
+/* TEXT */
 .title {
   font-size: 18px;
   margin-bottom: 5px;
@@ -64,6 +71,7 @@ body {
 
 .price {
   color: #f5d7b2;
+  font-weight: bold;
 }
 </style>
 
@@ -78,28 +86,28 @@ body {
 <div class="container">
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250">
+    <img src="https://via.placeholder.com/400x250" alt="">
     <div class="title">Студия у моря</div>
     <div class="desc">300м до пляжа, новый ремонт</div>
     <div class="price">$400 / месяц</div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250">
+    <img src="https://via.placeholder.com/400x250" alt="">
     <div class="title">1-bedroom квартира</div>
     <div class="desc">центр города, балкон</div>
     <div class="price">$550 / месяц</div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250">
+    <img src="https://via.placeholder.com/400x250" alt="">
     <div class="title">Дом с бассейном</div>
     <div class="desc">2 этажа, тихий район</div>
     <div class="price">$900 / месяц</div>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/400x250">
+    <img src="https://via.placeholder.com/400x250" alt="">
     <div class="title">Бунгало</div>
     <div class="desc">зелёная территория, рядом кафе</div>
     <div class="price">$300 / месяц</div>
