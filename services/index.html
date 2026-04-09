@@ -2,9 +2,110 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Аренда недвижимости</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Услуги</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.back {
+  color: #f5d7b2;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* LIST */
+.container {
+  padding: 15px;
+}
+
+/* CARD */
+.card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.desc {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #f5d7b2;
+}
+</style>
+
 </head>
-<body style="background:black; color:white; text-align:center; margin-top:50px;">
-<h1>Аренда недвижимости</h1>
+<body>
+
+<div class="header">
+  <a class="back" href="../index.html">← Назад</a>
+  <div>Услуги</div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x250">
+    <div class="title">Уборка квартиры</div>
+    <div class="desc">Генеральная уборка, быстро и качественно</div>
+    <div class="price">$20</div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x250">
+    <div class="title">Ремонт техники</div>
+    <div class="desc">Телефоны, ноутбуки, бытовая техника</div>
+    <div class="price">от $15</div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x250">
+    <div class="title">Трансфер</div>
+    <div class="desc">Аэропорт — отель / отель — аэропорт</div>
+    <div class="price">$10</div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x250">
+    <div class="title">Аренда авто</div>
+    <div class="desc">Комфортные автомобили на любой срок</div>
+    <div class="price">$30 / день</div>
+  </div>
+
+</div>
+
 </body>
 </html>
