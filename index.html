@@ -2,26 +2,175 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hess Marketplace</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --border: #d0d7de;
+      --text: #24292f;
+      --muted: #57606a;
+      --accent: #0969da;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .top-info {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .badge {
+      background: #eef2ff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    main {
+      padding: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      text-decoration: none;
+      color: var(--text);
+      transition: 0.2s;
+    }
+
+    .menu-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+
+    .title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .arrow {
+      color: var(--muted);
+    }
+
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Hess Marketplace</h1>
+  <div class="logo">Hess Marketplace</div>
+
   <div class="top-info">
-    <span>🌤 28°C</span>
-    <span>$ = 90₽</span>
+    <div class="badge">🌤 28°C</div>
+    <div class="badge">$ 90₽</div>
   </div>
 </header>
 
-<main class="grid">
+<main>
 
-  <a href="real-estate/index.html" class="card">🏠 Аренда недвижимости</a>
-  <a href="bikes/index.html" class="card">🏍 Аренда байков</a>
-  <a href="excursions/index.html" class="card">🌴 Экскурсии</a>
-  <a href="services/index.html" class="card">🛠 Услуги</a>
-  <a href="marketplace/index.html" class="card">🛒 Маркетплейс</a>
+  <div class="section-title">Категории</div>
+
+  <div class="menu">
+
+    <a href="./real-estate/index.html" class="menu-item">
+      <div class="left">
+        <div class="icon">🏠</div>
+        <div class="title">Аренда недвижимости</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="./bikes/index.html" class="menu-item">
+      <div class="left">
+        <div class="icon">🏍</div>
+        <div class="title">Аренда байков</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="./excursions/index.html" class="menu-item">
+      <div class="left">
+        <div class="icon">🌴</div>
+        <div class="title">Экскурсии</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="./services/index.html" class="menu-item">
+      <div class="left">
+        <div class="icon">🛠</div>
+        <div class="title">Услуги</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="./marketplace/index.html" class="menu-item">
+      <div class="left">
+        <div class="icon">🛒</div>
+        <div class="title">Маркетплейс</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+  </div>
 
 </main>
 
