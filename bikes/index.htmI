@@ -7,25 +7,142 @@
 
 <style>
 body {
-  margin:0;
-  font-family:sans-serif;
-  background:#111;
-  color:#fff;
-  text-align:center;
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: #fff;
 }
-a { color:#f5d7b2; text-decoration:none; }
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.back {
+  color: #f5d7b2;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.container {
+  padding: 15px;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.desc {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.price {
+  margin-top: 5px;
+  color: #f5d7b2;
+}
+
+/* КНОПКИ */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.telegram {
+  background: #0088cc;
+}
 </style>
 
 </head>
 <body>
 
-<h1>Аренда байков</h1>
+<div class="header">
+  <a class="back" href="../index.html">← Назад</a>
+  <div>Аренда байков</div>
+</div>
 
-<p>Honda PCX — $6 / день</p>
-<p>Yamaha NMAX — $7 / день</p>
+<div class="container">
 
-<br>
-<a href="../index.html">← Назад</a>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39">
+    <div class="title">Honda Air Blade</div>
+    <div class="desc">Автомат, экономичный</div>
+    <div class="price">$8 / день</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6">
+    <div class="title">Yamaha NVX</div>
+    <div class="desc">Мощный, для дальних поездок</div>
+    <div class="price">$10 / день</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1549921296-3a6b2a8c2f44">
+    <div class="title">Honda Vision</div>
+    <div class="desc">Лёгкий и удобный</div>
+    <div class="price">$7 / день</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1580310614729-ccd69652491d">
+    <div class="title">Suzuki Raider</div>
+    <div class="desc">Спортивный стиль</div>
+    <div class="price">$12 / день</div>
+
+    <div class="buttons">
+      <a href="https://wa.me/84365331907" class="btn whatsapp">WhatsApp</a>
+      <a href="https://t.me/trustasia" class="btn telegram">Telegram</a>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
