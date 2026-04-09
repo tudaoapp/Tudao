@@ -6,168 +6,200 @@
   <title>Hess Marketplace</title>
 
   <style>
-    :root {
-      --bg: #f5f5f5;
-      --card: #ffffff;
-      --text: #1c1c1e;
-      --muted: #8e8e93;
-      --border: #e5e5ea;
-      --accent: #007aff;
-    }
-
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      background: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      color: #f5d7b2;
+
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
+      height: 100vh;
     }
 
-    /* HEADER */
+    /* затемнение фона */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      z-index: -1;
+    }
+
     header {
-      position: sticky;
-      top: 0;
-      background: var(--card);
-      padding: 14px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
+      padding: 20px;
     }
 
-    .title {
-      font-size: 17px;
+    .logo {
+      font-size: 22px;
       font-weight: 600;
     }
 
-    .top-right {
+    .top-controls {
       display: flex;
-      gap: 8px;
-    }
-
-    .chip {
-      font-size: 12px;
-      background: #f2f2f7;
-      padding: 6px 10px;
-      border-radius: 20px;
-      color: var(--muted);
-    }
-
-    /* MAIN */
-    main {
-      padding: 12px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .list {
-      display: flex;
-      flex-direction: column;
       gap: 10px;
     }
 
-    /* CARD STYLE (как viethelper) */
-    .item {
+    .pill {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 8px 14px;
+      backdrop-filter: blur(10px);
+      font-size: 14px;
+      color: #fff;
+    }
+
+    main {
+      padding: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      height: 110px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      background: var(--card);
-      padding: 16px;
-      border-radius: 14px;
       text-decoration: none;
-      color: var(--text);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: all 0.15s ease;
+      color: #f5d7b2;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: 0.2s;
     }
 
-    .item:active {
-      transform: scale(0.98);
-      background: #f9f9f9;
-    }
-
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .card:active {
+      transform: scale(0.95);
     }
 
     .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: #eef2ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
+      font-size: 26px;
+      margin-bottom: 8px;
     }
 
-    .text {
-      font-size: 15px;
-      font-weight: 500;
+    /* нижний блок */
+    .bottom {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
     }
 
-    .arrow {
-      color: var(--muted);
-      font-size: 16px;
+    .info-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 15px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      font-size: 14px;
+    }
+
+    .big {
+      font-size: 20px;
+      margin-top: 10px;
     }
 
   </style>
 </head>
+
 <body>
 
 <header>
-  <div class="title">Hess Marketplace</div>
+  <div class="logo">Hess Marketplace</div>
 
-  <div class="top-right">
-    <div class="chip">🌤 28°C</div>
-    <div class="chip">$ 90₽</div>
+  <div class="top-controls">
+    <div class="pill">Нячанг</div>
+    <div class="pill">☰</div>
   </div>
 </header>
 
 <main>
 
-  <div class="list">
+  <div class="grid">
 
-    <a href="./real-estate/index.html" class="item">
-      <div class="left">
-        <div class="icon">🏠</div>
-        <div class="text">Аренда недвижимости</div>
-      </div>
-      <div class="arrow">›</div>
+    <a href="./services/index.html" class="card">
+      <div class="icon">🛠</div>
+      Услуги
     </a>
 
-    <a href="./bikes/index.html" class="item">
-      <div class="left">
-        <div class="icon">🏍</div>
-        <div class="text">Аренда байков</div>
-      </div>
-      <div class="arrow">›</div>
+    <a href="./real-estate/index.html" class="card">
+      <div class="icon">🏠</div>
+      Жилье
     </a>
 
-    <a href="./excursions/index.html" class="item">
-      <div class="left">
-        <div class="icon">🌴</div>
-        <div class="text">Экскурсии</div>
-      </div>
-      <div class="arrow">›</div>
+    <a href="#" class="card">
+      <div class="icon">💼</div>
+      Работа
     </a>
 
-    <a href="./services/index.html" class="item">
-      <div class="left">
-        <div class="icon">🛠</div>
-        <div class="text">Услуги</div>
-      </div>
-      <div class="arrow">›</div>
+    <a href="#" class="card">
+      <div class="icon">🍜</div>
+      Еда
     </a>
 
-    <a href="./marketplace/index.html" class="item">
-      <div class="left">
-        <div class="icon">🛒</div>
-        <div class="text">Маркетплейс</div>
-      </div>
-      <div class="arrow">›</div>
+    <a href="#" class="card">
+      <div class="icon">📄</div>
+      Визаран
     </a>
+
+    <a href="#" class="card">
+      <div class="icon">⭐</div>
+      Афиша
+    </a>
+
+    <a href="#" class="card">
+      <div class="icon">💱</div>
+      Обменник
+    </a>
+
+    <a href="#" class="card">
+      <div class="icon">📍</div>
+      Локации
+    </a>
+
+    <a href="./marketplace/index.html" class="card">
+      <div class="icon">🛒</div>
+      Маркетплейс
+    </a>
+
+    <a href="./excursions/index.html" class="card">
+      <div class="icon">🎫</div>
+      Экскурсии
+    </a>
+
+    <a href="#" class="card">
+      <div class="icon">🍸</div>
+      Бары
+    </a>
+
+    <a href="./bikes/index.html" class="card">
+      <div class="icon">🛵</div>
+      Аренда
+    </a>
+
+  </div>
+
+  <div class="bottom">
+
+    <div class="info-card">
+      Курс валют<br>
+      <div class="big">1$ = 26 000 VND</div>
+    </div>
+
+    <div class="info-card">
+      Погода<br>
+      <div class="big">+24°</div>
+    </div>
 
   </div>
 
