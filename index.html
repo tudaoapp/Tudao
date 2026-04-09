@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hess Marketplace</title>
 
-  <link rel="stylesheet" href="style.css">
-
   <style>
     :root {
-      --bg: #f6f8fa;
+      --bg: #f5f5f5;
       --card: #ffffff;
-      --border: #d0d7de;
-      --text: #24292f;
-      --muted: #57606a;
-      --accent: #0969da;
+      --text: #1c1c1e;
+      --muted: #8e8e93;
+      --border: #e5e5ea;
+      --accent: #007aff;
     }
 
     body {
@@ -24,91 +22,94 @@
       color: var(--text);
     }
 
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       background: var(--card);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
+      padding: 14px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
-    .logo {
+    .title {
+      font-size: 17px;
       font-weight: 600;
-      font-size: 16px;
     }
 
-    .top-info {
+    .top-right {
       display: flex;
-      gap: 10px;
-      font-size: 13px;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 12px;
+      background: #f2f2f7;
+      padding: 6px 10px;
+      border-radius: 20px;
       color: var(--muted);
     }
 
-    .badge {
-      background: #eef2ff;
-      padding: 5px 10px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
-
+    /* MAIN */
     main {
-      padding: 16px;
-      max-width: 600px;
+      padding: 12px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
-    .section-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--muted);
-    }
-
-    .menu {
+    .list {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .menu-item {
+    /* CARD STYLE (как viethelper) */
+    .item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
+      padding: 16px;
+      border-radius: 14px;
       text-decoration: none;
       color: var(--text);
-      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.15s ease;
     }
 
-    .menu-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
+    .item:active {
+      transform: scale(0.98);
+      background: #f9f9f9;
     }
 
     .left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .icon {
-      font-size: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
     }
 
-    .title {
+    .text {
       font-size: 15px;
       font-weight: 500;
     }
 
     .arrow {
       color: var(--muted);
+      font-size: 16px;
     }
 
   </style>
@@ -116,58 +117,56 @@
 <body>
 
 <header>
-  <div class="logo">Hess Marketplace</div>
+  <div class="title">Hess Marketplace</div>
 
-  <div class="top-info">
-    <div class="badge">🌤 28°C</div>
-    <div class="badge">$ 90₽</div>
+  <div class="top-right">
+    <div class="chip">🌤 28°C</div>
+    <div class="chip">$ 90₽</div>
   </div>
 </header>
 
 <main>
 
-  <div class="section-title">Категории</div>
+  <div class="list">
 
-  <div class="menu">
-
-    <a href="./real-estate/index.html" class="menu-item">
+    <a href="./real-estate/index.html" class="item">
       <div class="left">
         <div class="icon">🏠</div>
-        <div class="title">Аренда недвижимости</div>
+        <div class="text">Аренда недвижимости</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="arrow">›</div>
     </a>
 
-    <a href="./bikes/index.html" class="menu-item">
+    <a href="./bikes/index.html" class="item">
       <div class="left">
         <div class="icon">🏍</div>
-        <div class="title">Аренда байков</div>
+        <div class="text">Аренда байков</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="arrow">›</div>
     </a>
 
-    <a href="./excursions/index.html" class="menu-item">
+    <a href="./excursions/index.html" class="item">
       <div class="left">
         <div class="icon">🌴</div>
-        <div class="title">Экскурсии</div>
+        <div class="text">Экскурсии</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="arrow">›</div>
     </a>
 
-    <a href="./services/index.html" class="menu-item">
+    <a href="./services/index.html" class="item">
       <div class="left">
         <div class="icon">🛠</div>
-        <div class="title">Услуги</div>
+        <div class="text">Услуги</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="arrow">›</div>
     </a>
 
-    <a href="./marketplace/index.html" class="menu-item">
+    <a href="./marketplace/index.html" class="item">
       <div class="left">
         <div class="icon">🛒</div>
-        <div class="title">Маркетплейс</div>
+        <div class="text">Маркетплейс</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="arrow">›</div>
     </a>
 
   </div>
