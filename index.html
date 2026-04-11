@@ -15,23 +15,24 @@
 
 body {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
     color: white;
     overflow: hidden;
 
-    /* 🔥 ВСТАВЬ СВОЮ CINEMATIC КАРТИНКУ */
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.65),
         rgba(0,0,0,0.95)
     ),
-    url('ТВОЯ_КАРТИНКА_С_ВИЛЛОЙ') center/cover no-repeat;
+    url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
 }
 
-/* 🔝 TOP BAR */
+/* 🔝 TOP */
 .top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: calc(env(safe-area-inset-top) + 10px) 15px 0;
@@ -47,10 +48,6 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-.top-left {
-    display: flex;
-}
-
 .top-right {
     display: flex;
     gap: 10px;
@@ -58,8 +55,11 @@ body {
 
 /* 🧠 CENTER */
 .center {
+    position: absolute;
+    top: 35%;
+    width: 100%;
     text-align: center;
-    margin-top: -40px;
+    transform: translateY(-50%);
 }
 
 .title {
@@ -77,9 +77,12 @@ body {
     text-shadow: 0 0 20px rgba(255,150,50,0.7);
 }
 
-/* 🔘 BUTTONS */
+/* 🔘 BUTTONS — ВОТ ТУТ ГЛАВНОЕ ИЗМЕНЕНИЕ */
 .buttons {
-    padding: 0 15px calc(40px + env(safe-area-inset-bottom));
+    position: absolute;
+    bottom: 18%; /* 🔥 ПОДНЯЛ ВЫШЕ */
+    width: 100%;
+    padding: 0 15px;
 }
 
 .grid {
@@ -93,7 +96,6 @@ body {
     background: rgba(255,255,255,0.06);
     border-radius: 22px;
     border: 1px solid rgba(255,255,255,0.15);
-
     padding: 18px;
 
     display: flex;
@@ -102,7 +104,6 @@ body {
 
     font-size: 15px;
 
-    /* 🔥 ГЛУБИНА + СВЕЧЕНИЕ СНИЗУ */
     box-shadow:
         0 15px 40px rgba(0,0,0,0.6),
         0 0 25px rgba(255,140,0,0.25),
@@ -124,17 +125,9 @@ body {
     gap: 10px;
 }
 
-/* ✨ ИКОНКИ */
 .icon {
     font-size: 18px;
     filter: drop-shadow(0 0 8px rgba(255,140,0,0.8));
-}
-
-/* 📱 MOBILE */
-@media (max-width: 400px) {
-    .title {
-        font-size: 44px;
-    }
 }
 </style>
 </head>
@@ -143,10 +136,7 @@ body {
 
 <!-- 🔝 TOP -->
 <div class="top-bar">
-    <div class="top-left">
-        <div class="glass">🌤 +31°C</div>
-    </div>
-
+    <div class="glass">🌤 +31°C</div>
     <div class="top-right">
         <div class="glass">$ 94.42</div>
         <div class="glass">17:42</div>
@@ -164,34 +154,22 @@ body {
     <div class="grid">
 
         <div class="button" onclick="go('apartments')">
-            <div class="text">
-                <span class="icon">🏢</span>
-                Аренда апартаментов
-            </div>
+            <div class="text"><span class="icon">🏢</span>Аренда апартаментов</div>
             <div>›</div>
         </div>
 
         <div class="button" onclick="go('villas')">
-            <div class="text">
-                <span class="icon">🏡</span>
-                Аренда вилл
-            </div>
+            <div class="text"><span class="icon">🏡</span>Аренда вилл</div>
             <div>›</div>
         </div>
 
         <div class="button" onclick="go('bikes')">
-            <div class="text">
-                <span class="icon">🛵</span>
-                Аренда байков
-            </div>
+            <div class="text"><span class="icon">🛵</span>Аренда байков</div>
             <div>›</div>
         </div>
 
         <div class="button" onclick="go('tours')">
-            <div class="text">
-                <span class="icon">🌴</span>
-                Экскурсии
-            </div>
+            <div class="text"><span class="icon">🌴</span>Экскурсии</div>
             <div>›</div>
         </div>
 
