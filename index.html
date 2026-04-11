@@ -7,182 +7,181 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
-    color:#fff;
-    background:url('bg.jpg') center/cover no-repeat;
+  height:100vh;
+  overflow:hidden;
+  color:#fff;
+  background:url('bg.jpg') center/cover no-repeat;
 }
 
-/* затемнение как в макете */
+/* затемнение как на скрине */
 body::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.65));
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65));
 }
 
 /* стекло */
 .glass{
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    background: rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.25);
-    border-radius:20px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
 /* верх */
 .top-left{
-    position:absolute;
-    top:55px;
-    left:15px;
-    padding:8px 16px;
-    font-size:14px;
+  position:absolute;
+  top:55px;
+  left:15px;
+  padding:8px 16px;
+  font-size:14px;
 }
 
 .top-right{
-    position:absolute;
-    top:55px;
-    right:15px;
-    display:flex;
-    gap:10px;
+  position:absolute;
+  top:55px;
+  right:15px;
+  display:flex;
+  gap:10px;
 }
 
 .top-right div{
-    padding:8px 14px;
-    font-size:14px;
+  padding:8px 14px;
+  font-size:14px;
 }
 
-/* центр верх */
 .top-center{
-    position:absolute;
-    top:50px;
-    left:50%;
-    transform:translateX(-50%);
-    padding:6px 26px;
-    text-align:center;
-    font-size:13px;
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:6px 28px;
+  text-align:center;
+  font-size:13px;
 }
 
 .top-center small{
-    display:block;
-    font-size:11px;
-    opacity:.7;
+  display:block;
+  font-size:11px;
+  opacity:.7;
 }
 
-/* заголовок */
+/* центр */
 .center{
-    position:absolute;
-    top:32%;
-    width:100%;
-    text-align:center;
+  position:absolute;
+  top:32%;
+  width:100%;
+  text-align:center;
 }
 
 .center h1{
-    font-size:56px;
-    letter-spacing:5px;
-    font-weight:600;
+  font-size:56px;
+  letter-spacing:6px;
+  font-weight:600;
 }
 
 .center p{
-    margin-top:8px;
-    font-size:18px;
-    letter-spacing:4px;
-    color:#ffb347;
+  margin-top:10px;
+  font-size:18px;
+  letter-spacing:5px;
+  color:#ffb347;
 }
 
 /* кнопки */
 .buttons{
-    position:absolute;
-    bottom:26%;
-    width:100%;
-    padding:0 16px;
+  position:absolute;
+  bottom:26%;
+  width:100%;
+  padding:0 16px;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
 }
 
 .btn{
-    position:relative;
-    padding:18px;
-    border-radius:22px;
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
-    background: rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
+  position:relative;
+  padding:18px;
+  border-radius:24px;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    font-size:15px;
+  font-size:15px;
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.7),
-        inset 0 -15px 30px rgba(255,120,0,0.35);
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.7),
+    inset 0 -18px 35px rgba(255,120,0,0.35);
 }
 
-/* glow как на макете */
+/* glow снизу */
 .btn::after{
-    content:'';
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    height:40%;
-    border-radius:0 0 22px 22px;
-    background:linear-gradient(to top,rgba(255,140,0,0.5),transparent);
-    opacity:.6;
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:45%;
+  border-radius:0 0 24px 24px;
+  background:linear-gradient(to top, rgba(255,140,0,0.6), transparent);
+  opacity:.7;
 }
 
 .left{
-    display:flex;
-    gap:10px;
-    align-items:center;
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
 
 /* floating кнопка */
 .float{
-    position:absolute;
-    right:18px;
-    bottom:18%;
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  position:absolute;
+  right:18px;
+  bottom:18%;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    backdrop-filter: blur(25px);
-    background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.1);
 }
 
 /* нижняя панель */
 .bottom{
-    position:absolute;
-    bottom:18px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-    height:64px;
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  height:64px;
 
-    backdrop-filter: blur(30px);
-    background: rgba(255,255,255,0.1);
-    border-radius:35px;
+  backdrop-filter: blur(30px);
+  background: rgba(255,255,255,0.1);
+  border-radius:35px;
 
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
 }
 </style>
 </head>
@@ -193,57 +192,58 @@ body::after{
 <div class="glass top-left">🌙 +31°C</div>
 
 <div class="top-right">
-    <div class="glass">$ 94.42</div>
-    <div class="glass">17:42</div>
+  <div class="glass">$ 94.42</div>
+  <div class="glass">17:42</div>
 </div>
 
 <div class="glass top-center">
-    Сегодня
-    <small>22:22</small>
+  Сегодня
+  <small>22:22</small>
 </div>
 
 <!-- центр -->
 <div class="center">
-    <h1>HESS</h1>
-    <p>Marketplace</p>
+  <h1>HESS</h1>
+  <p>Marketplace</p>
 </div>
 
 <!-- кнопки -->
 <div class="buttons">
-    <div class="grid">
+  <div class="grid">
 
-        <div class="btn">
-            <div class="left">🏢 Аренда апартаментов</div>
-            <div>›</div>
-        </div>
-
-        <div class="btn">
-            <div class="left">🏡 Аренда вилл</div>
-            <div>›</div>
-        </div>
-
-        <div class="btn">
-            <div class="left">🛵 Аренда байков</div>
-            <div>›</div>
-        </div>
-
-        <div class="btn">
-            <div class="left">🌴 Экскурсии</div>
-            <div>›</div>
-        </div>
-
+    <div class="btn">
+      <div class="left">🏢 Аренда апартаментов</div>
+      <div>›</div>
     </div>
+
+    <div class="btn">
+      <div class="left">🏡 Аренда вилл</div>
+      <div>›</div>
+    </div>
+
+    <div class="btn">
+      <div class="left">🛵 Аренда байков</div>
+      <div>›</div>
+    </div>
+
+    <div class="btn">
+      <div class="left">🌴 Экскурсии</div>
+      <div>›</div>
+    </div>
+
+  </div>
 </div>
 
+<!-- плавающая кнопка -->
 <div class="float">☰</div>
 
-<!-- низ -->
+<!-- нижняя панель -->
 <div class="bottom">
-    <div>📤</div>
-    <div>❤️</div>
-    <div>ℹ️</div>
-    <div>⚙️</div>
-    <div>🗑️</div>
+  <div>📤</div>
+  <div>❤️</div>
+  <div>ℹ️</div>
+  <div>⚙️</div>
+  <div>🗑️</div>
 </div>
 
 </body>
