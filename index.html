@@ -6,193 +6,206 @@
 <title>HESS</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
-body {
-    height: 100vh;
-    overflow: hidden;
-    color: white;
-    background: url('bg.jpg') center/cover no-repeat;
+body{
+    height:100vh;
+    overflow:hidden;
+    color:#fff;
+    background:url('bg.jpg') center/cover no-repeat;
 }
 
-/* затемнение */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.6)
-    );
+/* затемнение как в макете */
+body::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.65));
+}
+
+/* стекло */
+.glass{
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
 /* верх */
-.top {
-    position: absolute;
-    top: 50px;
-    left: 15px;
-    right: 15px;
-    display: flex;
-    justify-content: space-between;
+.top-left{
+    position:absolute;
+    top:55px;
+    left:15px;
+    padding:8px 16px;
+    font-size:14px;
 }
 
-.glass {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 18px;
-    padding: 8px 14px;
-    font-size: 14px;
+.top-right{
+    position:absolute;
+    top:55px;
+    right:15px;
+    display:flex;
+    gap:10px;
 }
 
-/* центр сверху */
-.top-center {
-    position: absolute;
-    top: 45px;
-    left: 50%;
-    transform: translateX(-50%);
+.top-right div{
+    padding:8px 14px;
+    font-size:14px;
 }
 
-.top-center .glass {
-    padding: 6px 25px;
-    text-align: center;
+/* центр верх */
+.top-center{
+    position:absolute;
+    top:50px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:6px 26px;
+    text-align:center;
+    font-size:13px;
 }
 
-.top-center small {
-    display: block;
-    font-size: 11px;
-    opacity: 0.7;
+.top-center small{
+    display:block;
+    font-size:11px;
+    opacity:.7;
 }
 
-/* центр */
-.center {
-    position: absolute;
-    top: 34%;
-    width: 100%;
-    text-align: center;
+/* заголовок */
+.center{
+    position:absolute;
+    top:32%;
+    width:100%;
+    text-align:center;
 }
 
-.title {
-    font-size: 54px;
-    font-weight: 600;
-    letter-spacing: 4px;
+.center h1{
+    font-size:56px;
+    letter-spacing:5px;
+    font-weight:600;
 }
 
-.subtitle {
-    margin-top: 8px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    color: #ffb347;
+.center p{
+    margin-top:8px;
+    font-size:18px;
+    letter-spacing:4px;
+    color:#ffb347;
 }
 
 /* кнопки */
-.buttons {
-    position: absolute;
-    bottom: 24%;
-    width: 100%;
-    padding: 0 15px;
+.buttons{
+    position:absolute;
+    bottom:26%;
+    width:100%;
+    padding:0 16px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
 }
 
-.btn {
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+.btn{
+    position:relative;
+    padding:18px;
+    border-radius:22px;
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
     background: rgba(255,255,255,0.08);
-    border-radius: 22px;
-    padding: 16px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.2);
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    font-size: 15px;
+    font-size:15px;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.6),
-        inset 0 -10px 25px rgba(255,140,0,0.25);
+        0 15px 40px rgba(0,0,0,0.7),
+        inset 0 -15px 30px rgba(255,120,0,0.35);
 }
 
-.left {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+/* glow как на макете */
+.btn::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:40%;
+    border-radius:0 0 22px 22px;
+    background:linear-gradient(to top,rgba(255,140,0,0.5),transparent);
+    opacity:.6;
 }
 
-/* floating */
-.float {
-    position: absolute;
-    right: 15px;
-    bottom: 19%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.left{
+    display:flex;
+    gap:10px;
+    align-items:center;
 }
 
-/* низ */
-.bottom {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 92%;
-    height: 60px;
+/* floating кнопка */
+.float{
+    position:absolute;
+    right:18px;
+    bottom:18%;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
     background: rgba(255,255,255,0.1);
-    border-radius: 30px;
+}
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+/* нижняя панель */
+.bottom{
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    height:64px;
+
+    backdrop-filter: blur(30px);
+    background: rgba(255,255,255,0.1);
+    border-radius:35px;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
-
 <!-- верх -->
-<div class="top">
-    <div class="glass">🌤 +31°C</div>
+<div class="glass top-left">🌙 +31°C</div>
 
-    <div style="display:flex; gap:10px;">
-        <div class="glass">$ 94.42</div>
-        <div class="glass">17:42</div>
-    </div>
+<div class="top-right">
+    <div class="glass">$ 94.42</div>
+    <div class="glass">17:42</div>
 </div>
 
-<div class="top-center">
-    <div class="glass">
-        Сегодня
-        <small>22:22</small>
-    </div>
+<div class="glass top-center">
+    Сегодня
+    <small>22:22</small>
 </div>
 
 <!-- центр -->
 <div class="center">
-    <div class="title">HESS</div>
-    <div class="subtitle">Marketplace</div>
+    <h1>HESS</h1>
+    <p>Marketplace</p>
 </div>
 
 <!-- кнопки -->
@@ -222,7 +235,7 @@ body {
     </div>
 </div>
 
-<div class="float">⚙️</div>
+<div class="float">☰</div>
 
 <!-- низ -->
 <div class="bottom">
